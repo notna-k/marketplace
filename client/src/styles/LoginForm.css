@@ -1,0 +1,40 @@
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 3px solid #8435d9;
+    margin: 200px auto 300px;
+    max-width: 400px;
+    background: white;
+}
+
+.LoginForm input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.LoginForm h4 {
+    margin-bottom: 10px;
+    color: #8435d9;
+    text-align: center;
+}
+
+.LoginForm button {
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #8435d9;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
