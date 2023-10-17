@@ -4,46 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../client/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/.idea/client.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/backgrounds/backgr.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/components/Cabinet.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/components/LoginForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/components/RegistrationForm.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/styles/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/styles/LoginForm.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/styles/RegistrationForm.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/articles/articles.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/articles/articles.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/articles/dto/create-article.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/auth.mail.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/auth/auth.token.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions/api-errors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/users/dto/update-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/interfaces/userJwtPayload.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/interfaces/userJwtPayload.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/posts.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/articles/articles.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/posts.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/posts/posts.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/articles/articles.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/users/dto/create-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/users/dto/create-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/users/dto/sign-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/users/dto/sign-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/users/users.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/users/users.model.ts" afterDir="false" />
-    </list>
+    <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,23 +37,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/notna/Projects/JS_Projects/MarketPlace/client",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/notna/Projects/JS_Projects/MarketPlace/server/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/client&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/server/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="run dev" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -132,6 +93,7 @@
       <workItem from="1697452512547" duration="5506000" />
       <workItem from="1697474987824" duration="4509000" />
       <workItem from="1697527475908" duration="7485000" />
+      <workItem from="1697563554689" duration="5000" />
     </task>
     <servers />
   </component>
