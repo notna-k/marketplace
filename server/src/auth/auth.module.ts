@@ -5,21 +5,22 @@ import { UsersModule } from '../users/users.module';
 import {AuthService} from "./auth.service";
 import * as process from "process";
 import {AuthController} from "./auth.controller";
-import {Module} from "@nestjs/common";
+import {forwardRef, Module} from "@nestjs/common";
 import {ConfigModule, ConfigService} from "@nestjs/config";
-import {AuthMailService} from "./auth.mail.service";
-import {AuthTokenService} from "./auth.token.service";
+import {AuthGuard} from "./auth.guard";
+import {ACCESS_EXPIRATION_TIME, ACCESS_SECRET} from "../../constants";
 
 const jwtFactory = {
     useFactory: async (configService: ConfigService) => ({
-        secret: process.env.JWT_SECRET || 'secret',
+        secret: process.env.JWT_SECRET,
         signOptions: {
-            expiresIn: process.env.JWT_EXPIRATION_TIME || '24h',
+            expiresIn: process.env.JWT_EXPIRATION_TIME,
         },
     }),
     inject: [ConfigService],
 };
 
+// @ts-ignore
 @Module({
     imports: [
         ConfigModule.forRoot({
@@ -27,14 +28,16 @@ const jwtFactory = {
         }),
         PassportModule.register({ defaultStrategy: 'jwt' }),
         JwtModule.register({
-            secret: process.env.JWT_SECRET || 'secret',
-            signOptions: { expiresIn: process.env.JWT_EXPIRATION_TIME || "48h" },
+            secret: ACCESS_SECRET,
+            signOptions: { expiresIn: ACCESS_EXPIRATION_TIME},
         }),
 
 
+
+
     ],
-    providers: [AuthService, AuthMailService, AuthTokenService],
-    exports: [AuthService],
+    providers: [AuthService, AuthGuard],
+    exports: [AuthService, AuthGuard],
     controllers: [AuthController],
 })
 export class AuthModule {}

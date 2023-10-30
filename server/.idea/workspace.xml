@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="" />
+    <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../client/src/styles/Cabinet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/Cabinet.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/Cabinet.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/LoginForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/LoginForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/RegistrationForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/RegistrationForm.jsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +48,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/client&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/server&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -94,6 +99,13 @@
       <workItem from="1697474987824" duration="4509000" />
       <workItem from="1697527475908" duration="7485000" />
       <workItem from="1697563554689" duration="5000" />
+      <workItem from="1697650794070" duration="2610000" />
+      <workItem from="1697819860681" duration="7081000" />
+      <workItem from="1697873496295" duration="215000" />
+      <workItem from="1698482421299" duration="2966000" />
+      <workItem from="1698510775032" duration="4702000" />
+      <workItem from="1698655123547" duration="3633000" />
+      <workItem from="1698665810965" duration="312000" />
     </task>
     <servers />
   </component>

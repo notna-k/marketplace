@@ -7,11 +7,11 @@
  import * as cookieParser from "cookie-parser";
  import * as cors from "cors"
  import {ValidationPipe} from "@nestjs/common";
+ import * as dotenv from 'dotenv';
 
 
 
-
-const PORT = process.env.PORT || 5000
+ const PORT = process.env.PORT;
 const docsConfig = new DocumentBuilder()
  .setTitle("RESTful API Documentation for Marketplace")
  .setVersion("0.0.1")
@@ -22,9 +22,11 @@ const docsConfig = new DocumentBuilder()
  async function start() {
   const app = await NestFactory.create(AppModule);
   app.use(cookieParser());
-  app.use(cors());
+  app.enableCors();
+  dotenv.config();
 
   app.setGlobalPrefix("/api");
+
 
   const document = SwaggerModule.createDocument(app, docsConfig);
   SwaggerModule.setup("/api/docs", app, document);

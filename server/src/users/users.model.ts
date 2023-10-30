@@ -7,7 +7,6 @@ interface UserCreationAttrs{
     name : string;
     email : string;
     password : string;
-    region : string;
 }
 @Table({tableName: "users"})
 export class User extends Model<User, UserCreationAttrs>{
@@ -46,7 +45,7 @@ export class User extends Model<User, UserCreationAttrs>{
     @Column({type: DataType.STRING, allowNull: true})
     banReason : string;
 
-    @Column({type: DataType.STRING, allowNull: false})
+    @Column({type: DataType.STRING, allowNull: true})
     region : string;
 
     @Column({type: DataType.STRING, allowNull: true})
@@ -55,11 +54,11 @@ export class User extends Model<User, UserCreationAttrs>{
     @HasMany(() => Article)
     articles: Article[];
 
-    @Column({type: DataType.BOOLEAN, defaultValue: true})
+    @Column({type: DataType.BOOLEAN, defaultValue: false})
     isActivated: boolean;
 
     @Column({type: DataType.STRING, allowNull: true})
-    jwtRefreshKey: string;
+    refreshToken: string;
 
     @Column({type: DataType.STRING, allowNull: true})
     activationLink: string;

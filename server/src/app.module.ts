@@ -9,6 +9,7 @@ import {JwtModule} from "@nestjs/jwt";
 import { AuthModule } from './auth/auth.module';
 import { ArticlesModule } from './articles/articles.module';
 import {Article} from "./articles/articles.model";
+import {ACCESS_SECRET} from "../constants";
 
 
 
@@ -29,8 +30,9 @@ import {Article} from "./articles/articles.model";
             models: [User, Article],
             autoLoadModels : true
         }),
+
         UsersModule,
-        JwtModule.register({ secret: process.env.JWT_ACCESS_SECRET }),
+        JwtModule.register({ secret: ACCESS_SECRET }),
         AuthModule,
         ArticlesModule
     ],

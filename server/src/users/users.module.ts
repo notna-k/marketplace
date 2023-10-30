@@ -12,7 +12,7 @@ import {Article} from "../articles/articles.model";
 @Module({
   controllers: [UsersController],
   providers: [UsersService],
-  exports : [],
+  exports : [UsersModule],
   imports : [
       SequelizeModule.forFeature([User, Article]),
       AuthModule,

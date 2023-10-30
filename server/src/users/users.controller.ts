@@ -10,7 +10,7 @@ import {
     Param,
     Patch,
     Post,
-    Put
+    Put, Req, Request, UseGuards
 } from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user";
@@ -21,6 +21,7 @@ import {ExtractJwt} from "passport-jwt";
 import {JwtService} from "@nestjs/jwt";
 import {UserJwtPayload} from "../auth/interfaces/userJwtPayload";
 import {UpdateUserDto} from "./dto/update-user";
+import {AuthGuard} from "../auth/auth.guard";
 
 
 @Controller('/users')
@@ -34,7 +35,7 @@ export class UsersController {
     @Inject(AuthService)
     private readonly authService: AuthService
     @Get("/")
-    async getAll(@Headers("jwt") token: string): Promise<User[]> {
+    async getAll(@Headers("Authorization") token: string): Promise<User[]> {
         try {
             await this.authService.adminSignCheck(token);
             const users = await this.usersService.getAllUsers();
@@ -46,7 +47,7 @@ export class UsersController {
 
     @Get("/id/:id")
     async getById(@Param('id') id : number,
-                  @Headers("jwt") token: string
+                  @Headers("Authorization") token: string
                   ): Promise<User> {
         try {
             await this.authService.adminSignCheck(token);
@@ -58,11 +59,13 @@ export class UsersController {
 
     }
 
-    @Get("/me")
-    async getMe(@Headers("jwt") token: string,
+
+    @Get("/profile")
+    @UseGuards(AuthGuard)
+    async getProfile(@Request() req,
     ): Promise<User> {
         try {
-            const payload = await this.authService.signedInCheck(token);
+            const payload = req.payload;
 
             const id = payload['id'];
 
@@ -76,7 +79,7 @@ export class UsersController {
 
     @Get("/email/:email")
     async getByEmail(@Param('email') email : string,
-                     @Headers("jwt") token: string
+                     @Headers("Authorization") token: string
                      ): Promise<User> {
         try {
             await this.authService.adminSignCheck(token);
@@ -88,23 +91,12 @@ export class UsersController {
 
     }
 
-    @Post("/create")
-    async createUser(@Body() createUserDto : CreateUserDto,
-                     @Headers("jwt") token: string
-    ): Promise<User> {
-        try {
-            await this.authService.adminSignCheck(token);
-            const user = this.usersService.createUser(createUserDto);
-            return user;
-        } catch (e){
-            return e.toString();
-        }
 
-    }
 
     @Patch("/update")
+    @UseGuards(AuthGuard)
     async updateUser(@Body() updateUserDto : UpdateUserDto,
-                     @Headers("jwt") token: string
+                     @Headers("Authorization") token: string
     ): Promise<User> {
         try {
             await this.authService.adminSignCheck(token);
@@ -117,8 +109,9 @@ export class UsersController {
     }
 
     @Delete("/delete/:id")
+    @UseGuards(AuthGuard)
     async deleteUserById(@Param("id") id: number,
-                     @Headers("jwt") token: string){
+                     @Headers("Authorization") token: string){
         try {
             await this.authService.adminSignCheck(token);
             const metadata = this.usersService.deleteUser(id);
@@ -129,8 +122,9 @@ export class UsersController {
     }
 
     @Delete("/delete/:email")
+    @UseGuards(AuthGuard)
     async deleteUserByEmail(@Param("email") email: string,
-                     @Headers("jwt") token: string){
+                     @Headers("Authorization") token: string){
         try {
             await this.authService.adminSignCheck(token);
             const metadata = this.usersService.deleteUser(email);
