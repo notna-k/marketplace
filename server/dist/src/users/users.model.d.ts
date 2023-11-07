@@ -13,7 +13,6 @@ export declare class User extends Model<User, UserCreationAttrs> {
     password: string;
     profilePhotos: string[];
     description: string;
-    rating: number;
     groups: string[];
     banned: boolean;
     banReason: string;

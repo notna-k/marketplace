@@ -10,7 +10,7 @@ import {
     Param,
     Patch,
     Post,
-    Put, Req, Request, UseGuards
+    Put, Req, Request, Response, UseGuards
 } from '@nestjs/common';
 import {UsersService} from "./users.service";
 import {CreateUserDto} from "./dto/create-user";
@@ -63,16 +63,17 @@ export class UsersController {
     @Get("/profile")
     @UseGuards(AuthGuard)
     async getProfile(@Request() req,
-    ): Promise<User> {
+    ) {
         try {
             const payload = req.payload;
 
             const id = payload['id'];
 
             const user = await this.usersService.getUserById(id);
-            return user;
+            const {name, email, phoneNumber, city, region, profilePhotos, banned, banReason, createdAt} = user;
+            return {name, email, phoneNumber, city, region, profilePhotos, banned, banReason, createdAt};
         }catch (e){
-            return e.toString();
+            return {Error: e.message};
         }
 
     }
@@ -80,13 +81,13 @@ export class UsersController {
     @Get("/email/:email")
     async getByEmail(@Param('email') email : string,
                      @Headers("Authorization") token: string
-                     ): Promise<User> {
+                     ) {
         try {
             await this.authService.adminSignCheck(token);
             const user = await this.usersService.getUserByEmail(email);
             return user;
         } catch (e){
-            return e.toString();
+            return {Error: e.message};
         }
 
     }
@@ -96,11 +97,12 @@ export class UsersController {
     @Patch("/update")
     @UseGuards(AuthGuard)
     async updateUser(@Body() updateUserDto : UpdateUserDto,
-                     @Headers("Authorization") token: string
-    ): Promise<User> {
+                     @Headers("Authorization") token: string,
+                     @Response() res,
+    ) {
         try {
             await this.authService.adminSignCheck(token);
-            const updatedUser = this.usersService.updateUser(updateUserDto);
+            const updatedUser = await this.usersService.updateUser(res.payload['id'], updateUserDto);
             return updatedUser;
         } catch (e){
             return e.toString();

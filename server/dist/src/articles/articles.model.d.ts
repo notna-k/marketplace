@@ -1,11 +1,12 @@
 import { Model } from "sequelize-typescript";
 import { User } from "../users/users.model";
-interface ArticleCreationAttrs {
+export interface ArticleCreationAttrs {
     head: string;
     description: string;
     price: number;
     currency: string;
-    postPhotos: string[];
+    pictures: string[];
+    userId: number;
 }
 export declare class Article extends Model<Article, ArticleCreationAttrs> {
     id: number;
@@ -14,7 +15,6 @@ export declare class Article extends Model<Article, ArticleCreationAttrs> {
     description: string;
     price: number;
     currency: string;
-    postPhotos: string[];
+    pictures: string[];
     user: User;
 }
-export {};

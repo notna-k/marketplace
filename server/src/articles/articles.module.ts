@@ -5,17 +5,17 @@ import {User} from "../users/users.model";
 import {AuthModule} from "../auth/auth.module";
 import {JwtModule} from "@nestjs/jwt";
 import {Article} from "./articles.model";
-//import {ArticlesController} from "./articles.controller";
-import {AuthService} from "../auth/auth.service";
+
+import {FileService} from "../file/file.service";
+import {ArticlesController} from "./articles.controller";
 
 @Module({
-  //controllers: [ArticlesController],
-  providers: [ArticlesService],
+  controllers: [ArticlesController],
+  providers: [ArticlesService, FileService],
   imports : [
     SequelizeModule.forFeature([Article, User]),
     AuthModule,
-    JwtModule
-
+    JwtModule,
   ]
 })
 export class ArticlesModule {}

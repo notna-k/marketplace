@@ -10,13 +10,18 @@ import { AuthModule } from './auth/auth.module';
 import { ArticlesModule } from './articles/articles.module';
 import {Article} from "./articles/articles.model";
 import {ACCESS_SECRET} from "../constants";
+import { FileService } from './file/file.service';
+import { FileModule } from './file/file.module';
+import {ServeStaticModule} from "@nestjs/serve-static";
+import * as path from "path";
 
 
 
 @Module({
     controllers: [],
-    providers: [],
+    providers: [FileService],
     imports: [
+        ServeStaticModule.forRoot({rootPath: path.resolve(__dirname, '..', "static")}),
         ConfigModule.forRoot({
         envFilePath : '.env',
         }),
@@ -34,7 +39,8 @@ import {ACCESS_SECRET} from "../constants";
         UsersModule,
         JwtModule.register({ secret: ACCESS_SECRET }),
         AuthModule,
-        ArticlesModule
+        ArticlesModule,
+        FileModule
     ],
  })
 export class AppModule{

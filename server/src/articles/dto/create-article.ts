@@ -3,5 +3,4 @@ export class CreateArticleDto{
     readonly description : string;
     readonly price: number;
     readonly currency: string;
-    readonly postPhotos: string[];
 }

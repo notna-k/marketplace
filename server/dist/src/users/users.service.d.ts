@@ -8,6 +8,8 @@ export declare class UsersService {
     getUserById(id: number): Promise<User>;
     getUserByEmail(email: string): Promise<User>;
     createUser(createUserDto: CreateUserDto): Promise<User>;
-    updateUser(updateUserDto: UpdateUserDto): Promise<User>;
+    updateUser(id: number, updateUserDto: UpdateUserDto): Promise<User | {
+        Error: any;
+    }>;
     deleteUser(IdOrEmail: number | string): Promise<any>;
 }

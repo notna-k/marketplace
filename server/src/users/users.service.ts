@@ -24,16 +24,15 @@ export class UsersService {
         return user;
     }
 
-    async createUser(createUserDto: CreateUserDto): Promise<User>{
+    async createUser(createUserDto: CreateUserDto){
         const user = await this.UserRepository.create(createUserDto);
         return user;
     }
 
-    async updateUser(updateUserDto: UpdateUserDto): Promise <User>{
+    async updateUser(id: number, updateUserDto: UpdateUserDto){
         const {...updateValues} = updateUserDto;
 
 
-        //searching by id, if not found searching by email
         try {
             await this.UserRepository.update(
                 {...updateValues},
@@ -46,21 +45,8 @@ export class UsersService {
             const updatedUser = this.UserRepository.findByPk(updateValues.id)
             return updatedUser;
 
-        } catch(e){
-            await this.UserRepository.update(
-                {...updateValues},
-                {
-                    where: {
-                        email: updateValues.email
-                    }
-                }
-            );
-            const updatedUser = this.UserRepository.findOne({
-                where:{
-                    email:updateValues.email
-                }
-            })
-            return updatedUser;
+        } catch(e: any){
+            return {Error: e.message}
 
         }
 

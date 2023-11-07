@@ -33,9 +33,6 @@ export class User extends Model<User, UserCreationAttrs>{
     @Column({type: DataType.TEXT, allowNull: true})
     description: string;
 
-    @Column({type: DataType.INTEGER, allowNull : true})
-    rating: number;
-
     @Column({type: DataType.ARRAY(DataType.STRING), defaultValue : ["USER"], allowNull : false})
     groups: string[];
 

@@ -18,14 +18,19 @@ const auth_module_1 = require("./auth/auth.module");
 const articles_module_1 = require("./articles/articles.module");
 const articles_model_1 = require("./articles/articles.model");
 const constants_1 = require("../constants");
+const file_service_1 = require("./file/file.service");
+const file_module_1 = require("./file/file.module");
+const serve_static_1 = require("@nestjs/serve-static");
+const path = require("path");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         controllers: [],
-        providers: [],
+        providers: [file_service_1.FileService],
         imports: [
+            serve_static_1.ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, '..', "static") }),
             config_1.ConfigModule.forRoot({
                 envFilePath: '.env',
             }),
@@ -42,7 +47,8 @@ exports.AppModule = AppModule = __decorate([
             users_module_1.UsersModule,
             jwt_1.JwtModule.register({ secret: constants_1.ACCESS_SECRET }),
             auth_module_1.AuthModule,
-            articles_module_1.ArticlesModule
+            articles_module_1.ArticlesModule,
+            file_module_1.FileModule
         ],
     })
 ], AppModule);

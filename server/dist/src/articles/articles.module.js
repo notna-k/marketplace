@@ -14,16 +14,19 @@ const users_model_1 = require("../users/users.model");
 const auth_module_1 = require("../auth/auth.module");
 const jwt_1 = require("@nestjs/jwt");
 const articles_model_1 = require("./articles.model");
+const file_service_1 = require("../file/file.service");
+const articles_controller_1 = require("./articles.controller");
 let ArticlesModule = class ArticlesModule {
 };
 exports.ArticlesModule = ArticlesModule;
 exports.ArticlesModule = ArticlesModule = __decorate([
     (0, common_1.Module)({
-        providers: [articles_service_1.ArticlesService],
+        controllers: [articles_controller_1.ArticlesController],
+        providers: [articles_service_1.ArticlesService, file_service_1.FileService],
         imports: [
             sequelize_1.SequelizeModule.forFeature([articles_model_1.Article, users_model_1.User]),
             auth_module_1.AuthModule,
-            jwt_1.JwtModule
+            jwt_1.JwtModule,
         ]
     })
 ], ArticlesModule);

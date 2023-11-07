@@ -47,10 +47,11 @@ let UsersController = class UsersController {
             const payload = req.payload;
             const id = payload['id'];
             const user = await this.usersService.getUserById(id);
-            return user;
+            const { name, email, phoneNumber, city, region, profilePhotos, banned, banReason, createdAt } = user;
+            return { name, email, phoneNumber, city, region, profilePhotos, banned, banReason, createdAt };
         }
         catch (e) {
-            return e.toString();
+            return { Error: e.message };
         }
     }
     async getByEmail(email, token) {
@@ -60,13 +61,13 @@ let UsersController = class UsersController {
             return user;
         }
         catch (e) {
-            return e.toString();
+            return { Error: e.message };
         }
     }
-    async updateUser(updateUserDto, token) {
+    async updateUser(updateUserDto, token, res) {
         try {
             await this.authService.adminSignCheck(token);
-            const updatedUser = this.usersService.updateUser(updateUserDto);
+            const updatedUser = await this.usersService.updateUser(res.payload['id'], updateUserDto);
             return updatedUser;
         }
         catch (e) {
@@ -135,8 +136,9 @@ __decorate([
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Headers)("Authorization")),
+    __param(2, (0, common_1.Response)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [update_user_1.UpdateUserDto, String]),
+    __metadata("design:paramtypes", [update_user_1.UpdateUserDto, String, Object]),
     __metadata("design:returntype", Promise)
 ], UsersController.prototype, "updateUser", null);
 __decorate([

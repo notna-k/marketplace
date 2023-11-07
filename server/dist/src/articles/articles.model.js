@@ -43,7 +43,7 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.ARRAY(sequelize_typescript_1.DataType.STRING), allowNull: true }),
     __metadata("design:type", Array)
-], Article.prototype, "postPhotos", void 0);
+], Article.prototype, "pictures", void 0);
 __decorate([
     (0, sequelize_typescript_1.BelongsTo)(() => users_model_1.User),
     __metadata("design:type", users_model_1.User)

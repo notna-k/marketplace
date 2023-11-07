@@ -14,25 +14,42 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArticlesService = void 0;
 const common_1 = require("@nestjs/common");
+const articles_model_1 = require("./articles.model");
 const sequelize_1 = require("@nestjs/sequelize");
-const users_model_1 = require("../users/users.model");
+const file_service_1 = require("../file/file.service");
+const sequelize_2 = require("sequelize");
 let ArticlesService = class ArticlesService {
-    constructor(ArticleRepository) {
-        this.ArticleRepository = ArticleRepository;
+    constructor(articleRepository, fileService) {
+        this.articleRepository = articleRepository;
+        this.fileService = fileService;
     }
-    async getAll() {
-        const articles = this.ArticleRepository.findAll();
+    async getAll(count = 10, offset = 0) {
+        const articles = this.articleRepository.findAll({ offset, limit: count });
         return articles;
     }
-    async createArticle(createArticleDto) {
-        const article = this.ArticleRepository.create(createArticleDto);
+    async search(query) {
+        const articles = this.articleRepository.findAll({ where: {
+                head: { [sequelize_2.Op.iRegexp]: query }
+            } });
+        return articles;
+    }
+    async createArticle(createArticleDto, userId, pictures) {
+        const { head, price, description, currency } = createArticleDto;
+        let picturesStrs = [];
+        for (const file of pictures) {
+            const TypeAndName = await this.fileService.createFile(file_service_1.FileType.IMAGE, file);
+            const fileName = TypeAndName.split("/").pop();
+            picturesStrs.push(fileName);
+        }
+        const artileCreationAttrs = { pictures: picturesStrs, head, price, description, currency, userId };
+        const article = this.articleRepository.create(artileCreationAttrs);
         return article;
     }
 };
 exports.ArticlesService = ArticlesService;
 exports.ArticlesService = ArticlesService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, sequelize_1.InjectModel)(users_model_1.User)),
-    __metadata("design:paramtypes", [Object])
+    __param(0, (0, sequelize_1.InjectModel)(articles_model_1.Article)),
+    __metadata("design:paramtypes", [Object, file_service_1.FileService])
 ], ArticlesService);
 //# sourceMappingURL=articles.service.js.map

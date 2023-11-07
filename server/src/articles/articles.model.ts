@@ -2,12 +2,13 @@
 import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
 import {User} from "../users/users.model";
 
-interface ArticleCreationAttrs{
+export interface ArticleCreationAttrs{
     head : string;
     description : string;
     price: number;
     currency: string;
-    postPhotos: string[];
+    pictures: string[];
+    userId: number;
 }
 @Table({tableName: "articles"})
 export class Article extends Model<Article, ArticleCreationAttrs>{
@@ -32,7 +33,7 @@ export class Article extends Model<Article, ArticleCreationAttrs>{
     currency: string;
 
     @Column({type: DataType.ARRAY(DataType.STRING), allowNull: true})
-    postPhotos: string[];
+    pictures: string[];
 
 
 

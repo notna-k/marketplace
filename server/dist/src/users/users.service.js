@@ -36,7 +36,7 @@ let UsersService = class UsersService {
         const user = await this.UserRepository.create(createUserDto);
         return user;
     }
-    async updateUser(updateUserDto) {
+    async updateUser(id, updateUserDto) {
         const { ...updateValues } = updateUserDto;
         try {
             await this.UserRepository.update({ ...updateValues }, {
@@ -48,17 +48,7 @@ let UsersService = class UsersService {
             return updatedUser;
         }
         catch (e) {
-            await this.UserRepository.update({ ...updateValues }, {
-                where: {
-                    email: updateValues.email
-                }
-            });
-            const updatedUser = this.UserRepository.findOne({
-                where: {
-                    email: updateValues.email
-                }
-            });
-            return updatedUser;
+            return { Error: e.message };
         }
     }
     async deleteUser(IdOrEmail) {

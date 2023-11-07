@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="92dff1fd-4e27-41c2-ac68-3b768b3b91fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/reportWebVitals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backgrounds/backgr.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cabinet.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LoginForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RegistrationForm.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Cabinet.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/LoginForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/RegistrationForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/app.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/app.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/app.module.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.model.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.module.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.service.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/articles.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/articles.service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/articles/dto/create-article.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/articles/dto/create-article.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/exceptions/api-errors.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/exceptions/api-errors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/exceptions/api-errors.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/src/users/users.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/src/users/users.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/uuid/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/uuid/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/uuid/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/uuid/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/uuid/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/uuid/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/dto/create-article.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/dto/create-article.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/exceptions/api-errors.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2WspOQgbJVAhCHXm7o6XlHcgxBb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/client&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/index.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="92dff1fd-4e27-41c2-ac68-3b768b3b91fc" name="Changes" comment="" />
+      <created>1697531109333</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697531109333</updated>
+      <workItem from="1697531110374" duration="13271000" />
+      <workItem from="1697563560925" duration="773000" />
+      <workItem from="1697650360967" duration="3682000" />
+      <workItem from="1697910149723" duration="1012000" />
+      <workItem from="1697961373442" duration="26000" />
+      <workItem from="1697963254799" duration="2248000" />
+      <workItem from="1697979993479" duration="625000" />
+      <workItem from="1698043086638" duration="599000" />
+      <workItem from="1699025419692" duration="373000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
