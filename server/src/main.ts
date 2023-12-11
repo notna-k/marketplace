@@ -1,13 +1,10 @@
  import { NestFactory } from '@nestjs/core';
-
  import * as process from "process";
  import {AppModule} from "./app.module";
- import sequelize from "sequelize";
  import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
  import * as cookieParser from "cookie-parser";
- import * as cors from "cors"
- import {ValidationPipe} from "@nestjs/common";
- import * as dotenv from 'dotenv';
+ import {BadRequestException, ValidationPipe} from "@nestjs/common";
+ import {ConfigService} from "@nestjs/config";
 
 
 
@@ -21,9 +18,23 @@ const docsConfig = new DocumentBuilder()
 
  async function start() {
   const app = await NestFactory.create(AppModule);
-  app.use(cookieParser());
-  app.enableCors();
-  dotenv.config();
+  const config = app.get(ConfigService)
+
+  app.enableCors({
+   origin: [config.get('CLIENT_URL'), 'http://localhost:3000'],
+   credentials: true,
+  })
+
+  app.use(cookieParser())
+
+  app.useGlobalPipes(
+      new ValidationPipe({
+       whitelist: true,
+       transform: true,
+       exceptionFactory: errors =>
+           new BadRequestException(errors, 'Validation Error'),
+      }),
+  )
 
   app.setGlobalPrefix("/api");
 

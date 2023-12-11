@@ -1,7 +1,7 @@
-export class CreateArticleDto{
-    readonly head : string;
-    readonly description : string;
-    readonly price: number;
-    readonly currency: string;
-    readonly pictures: Express.Multer.File[];
+export interface CreateArticleDto{
+    head : string;
+    description : string;
+    price: number | null;
+    currency: string | null;
+
 }

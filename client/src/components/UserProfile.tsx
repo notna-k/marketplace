@@ -9,7 +9,7 @@ import {useNavigate} from "react-router-dom";
 
 
 
-const Profile = () => {
+const UserProfile = () => {
     const {userStore} = useContext(Context);
     const accessToken = localStorage.getItem('accessToken');
     const [isChange, setIsChange] = useState(false);
@@ -47,6 +47,9 @@ const Profile = () => {
                     const user = await UserService.getProfile(accessToken);
                     if (user) setUserData(user);
                 } catch (e) {
+                    console.log(e);
+                    localStorage.removeItem('accessToken');
+                    userStore.setIsAuth(false);
                     router('/login');
 
                 }
@@ -61,11 +64,19 @@ const Profile = () => {
         setIsChange(!isChange);
     }
 
-    const updateUser = async (event: FormEvent) => {
+    const updateUser =  async (event: FormEvent) => {
         event.preventDefault();
         try{
-            if(accessToken) await UserService.update(accessToken, formData);
+
+            if(accessToken){
+                const res = await UserService.update(accessToken, formData);
+                const updatedUser = {...res};
+                if(updatedUser) setUserData(updatedUser);
+
+            }
+            setIsChange(false);
         } catch(e: any){
+            console.log(e);
             setErrMsg(e.message);
         }
 
@@ -190,7 +201,7 @@ const Profile = () => {
                     <div className="d-flex justify-content-end mt-1">
                         <Row className="d-flex justify-content-end mt-1">
                             <Col>
-                                {isChange ? <Button style={{width:'100px'}} variant="success">Change</Button> : <></>}
+                                {isChange ? <Button style={{width:'100px'}} variant="success" onClick={updateUser}>Change</Button> : <></>}
                             </Col>
                             <Col>
                                 <button style={{width:'100px'}} className="btn btn-primary " onClick={toggleIsChange}>
@@ -211,4 +222,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default UserProfile;

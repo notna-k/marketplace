@@ -1,15 +1,12 @@
 import {Module} from "@nestjs/common"
 
 import { SequelizeModule } from "@nestjs/sequelize";
-import { UsersModule } from './users/users.module';
+import { UserModule } from './user/user.module';
 import {ConfigModule} from "@nestjs/config";
-import {User} from "./users/users.model";
+import {User} from "./user/user.model";
 import * as process from "process";
-import {JwtModule} from "@nestjs/jwt";
-import { AuthModule } from './auth/auth.module';
 import { ArticlesModule } from './articles/articles.module';
 import {Article} from "./articles/articles.model";
-import {ACCESS_SECRET} from "../constants";
 import { FileService } from './file/file.service';
 import { FileModule } from './file/file.module';
 import {ServeStaticModule} from "@nestjs/serve-static";
@@ -36,9 +33,7 @@ import * as path from "path";
             autoLoadModels : true
         }),
 
-        UsersModule,
-        JwtModule.register({ secret: ACCESS_SECRET }),
-        AuthModule,
+        UserModule,
         ArticlesModule,
         FileModule
     ],

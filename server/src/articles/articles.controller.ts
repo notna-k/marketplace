@@ -2,21 +2,18 @@ import {
     Body,
     Controller,
     Get,
-    Headers,
-    Inject,
+    HttpException, HttpStatus,
     Post, Query,
     Request,
-    UploadedFile, UploadedFiles,
+    UploadedFiles,
     UseGuards,
     UseInterceptors
 } from '@nestjs/common';
-import {UsersService} from "../users/users.service";
 import {ArticlesService} from "./articles.service";
-import {AuthService} from "../auth/auth.service";
 import {CreateArticleDto} from "./dto/create-article";
 import {Article} from "./articles.model";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
-import {AuthGuard} from "../auth/auth.guard";
+import {AuthGuard} from "../shared/guards/auth-guard";
 
 @Controller('/articles')
 export class ArticlesController {
@@ -33,9 +30,15 @@ export class ArticlesController {
     }
 
     @Get("/search")
-    async search(@Query("query") query: string): Promise<Article[]>{
-        const articles = this.articlesService.search(query);
-        return articles;
+    async search(@Query("query") query: string): Promise<Article[] | HttpException>{
+        try{
+            const articles = this.articlesService.search(query);
+            return articles;
+        } catch (e){
+
+            return new HttpException(e.message, HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @Post("/create")
