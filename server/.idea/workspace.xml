@@ -5,63 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../client/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/components/CreateArticle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/.idea/client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../client/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/reportWebVitals.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/src/setupTests.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/my-app/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/article/articleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/article/articleService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/article/dto/create-article.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/article/dto/create-article.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/user/dto/create-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/user/dto/create-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/user/dto/sign-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/user/dto/sign-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/user/dto/update-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/user/dto/update-user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/user/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/user/userService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/AppRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/backgrounds/backgr.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/Cabinet.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/LoginForm.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/RegistrationForm.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/UserProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/pages/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/store/UserStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/store/UserStore.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/styles/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/styles/Cabinet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/styles/LoginForm.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/styles/RegistrationForm.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,25 +41,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/notna/Projects/JS_Projects/MarketPlace/server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "ts.external.directory.path": "/home/notna/Projects/JS_Projects/MarketPlace/server/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/server/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -178,6 +127,7 @@
       <workItem from="1701336330815" duration="27000" />
       <workItem from="1701363944923" duration="45000" />
       <workItem from="1702288706357" duration="5475000" />
+      <workItem from="1702370197681" duration="7622000" />
     </task>
     <servers />
   </component>

@@ -14,8 +14,8 @@ const sequelize_1 = require("@nestjs/sequelize");
 const user_model_1 = require("./user.model");
 const jwt_1 = require("@nestjs/jwt");
 const articles_model_1 = require("../articles/articles.model");
-const token_module_1 = require("../shared/token/token.module");
-const token_service_1 = require("../shared/token/token.service");
+const token_module_1 = require("../token/token.module");
+const token_service_1 = require("../token/token.service");
 const config_1 = require("@nestjs/config");
 let UserModule = class UserModule {
 };

@@ -7,7 +7,7 @@ import {Article} from "./articles.model";
 
 import {FileService} from "../file/file.service";
 import {ArticlesController} from "./articles.controller";
-import {TokenModule} from "../shared/token/token.module";
+import {TokenModule} from "../token/token.module";
 
 @Module({
   controllers: [ArticlesController],

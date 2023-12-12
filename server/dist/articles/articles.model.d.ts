@@ -6,16 +6,16 @@ export interface ArticleCreationAttrs {
     description: string;
     price: number;
     currency: string;
-    pictures: string[];
+    images: string[];
     userId: number;
 }
 export declare class Article extends Model<Article, ArticleCreationAttrs> {
     id: number;
     userId: number;
-    head: string;
+    title: string;
     description: string;
     price: number;
     currency: CurrencyType;
-    pictures: string[];
+    images: string[];
     user: User;
 }

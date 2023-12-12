@@ -1,8 +1,8 @@
-import { User } from "../../user/user.model";
+import { User } from "../user/user.model";
 import { JwtService } from "@nestjs/jwt";
-import { UserJwtPayload } from "../dto/auth-user.dto";
+import { UserJwtPayload } from "../shared/dto/auth-user.dto";
 import { ConfigService } from "@nestjs/config";
-import { UserService } from "../../user/user.service";
+import { UserService } from "../user/user.service";
 export declare class TokenService {
     private jwtService;
     private config;

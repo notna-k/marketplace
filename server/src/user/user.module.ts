@@ -5,8 +5,8 @@ import {SequelizeModule} from "@nestjs/sequelize";
 import {User} from "./user.model";
 import {JwtModule} from "@nestjs/jwt";
 import {Article} from "../articles/articles.model";
-import {TokenModule} from "../shared/token/token.module";
-import {TokenService} from "../shared/token/token.service";
+import {TokenModule} from "../token/token.module";
+import {TokenService} from "../token/token.service";
 import {ConfigModule} from "@nestjs/config";
 
 @Module({

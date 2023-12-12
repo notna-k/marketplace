@@ -9,7 +9,7 @@ import {
 import {UserService} from "./user.service";
 import {GetProfileBodyDto} from "./dto/get-profile-body.dto";
 import {SignInBodyDto} from "./dto/sign-in-body.dto";
-import {TokenService} from "../shared/token/token.service";
+import {TokenService} from "../token/token.service";
 import {SignUpBodyDto} from "./dto/sign-up-body.dto";
 import {ConfigService} from "@nestjs/config";
 import {Response} from "express"
@@ -17,6 +17,7 @@ import {AuthGuard} from "../shared/guards/auth-guard";
 import {RefreshTokenBodyDto} from "./dto/refresh-token-body.dto";
 import Cookies from "nodemailer/lib/fetch/cookies";
 import {AuthUserDto} from "../shared/dto/auth-user.dto";
+import ms from "ms";
 
 
 @Controller('user')
@@ -56,14 +57,19 @@ export class UserController {
     @Post("sign_up")
     async signUp(@Body() body: SignUpBodyDto,
                  @Res({ passthrough: true }) res: Response): Promise<any>{
-        console.log(body);
+
+        const existUser = await this.usersService.getUserByEmail(body.email);
+        if(existUser) throw new HttpException("User with given email already exists",
+            HttpStatus.BAD_REQUEST);
+
 
         const user = await this.usersService.createUser(body);
-        const {refreshToken, accessToken} = await this.tokenService.createTokens(user)
+        console.log(Number(this.config.get("JWT_REFRESH_EXPIRES").slice(0,-1)) * 24*60*60*1000)
+        const {refreshToken, accessToken} = await this.tokenService.createTokens(user);
 
         await this.usersService.saveRefreshToken(refreshToken, user.id);
         res.cookie('refreshToken', refreshToken, {
-            maxAge: Number(this.config.get("JWT_REFRESH_EXPIRES").slice(0, -1)) * 24 * 60 * 60 * 1000,
+            maxAge: Number(this.config.get("JWT_REFRESH_EXPIRES").slice(0,-1)) * 24*60*60*1000,
             httpOnly: true,
             sameSite: 'none',
             secure: true,

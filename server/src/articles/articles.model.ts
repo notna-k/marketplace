@@ -8,7 +8,7 @@ export interface ArticleCreationAttrs{
     description : string;
     price: number;
     currency: string;
-    pictures: string[];
+    images: string[];
     userId: number;
 }
 @Table({tableName: "articles"})
@@ -22,7 +22,7 @@ export class Article extends Model<Article, ArticleCreationAttrs>{
     userId: number;
 
     @Column({type: DataType.STRING, allowNull : false})
-    head: string;
+    title: string;
 
     @Column({type: DataType.TEXT, defaultValue: ""})
     description: string;
@@ -34,7 +34,7 @@ export class Article extends Model<Article, ArticleCreationAttrs>{
     currency: CurrencyType;
 
     @Column({type: DataType.ARRAY(DataType.STRING), allowNull: true})
-    pictures: string[];
+    images: string[];
 
 
 

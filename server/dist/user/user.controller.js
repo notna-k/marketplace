@@ -16,7 +16,7 @@ exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
 const user_service_1 = require("./user.service");
 const sign_in_body_dto_1 = require("./dto/sign-in-body.dto");
-const token_service_1 = require("../shared/token/token.service");
+const token_service_1 = require("../token/token.service");
 const sign_up_body_dto_1 = require("./dto/sign-up-body.dto");
 const config_1 = require("@nestjs/config");
 const auth_guard_1 = require("../shared/guards/auth-guard");
@@ -43,8 +43,11 @@ let UserController = class UserController {
         }
     }
     async signUp(body, res) {
-        console.log(body);
+        const existUser = await this.usersService.getUserByEmail(body.email);
+        if (existUser)
+            throw new common_1.HttpException("User with given email already exists", common_1.HttpStatus.BAD_REQUEST);
         const user = await this.usersService.createUser(body);
+        console.log(Number(this.config.get("JWT_REFRESH_EXPIRES").slice(0, -1)) * 24 * 60 * 60 * 1000);
         const { refreshToken, accessToken } = await this.tokenService.createTokens(user);
         await this.usersService.saveRefreshToken(refreshToken, user.id);
         res.cookie('refreshToken', refreshToken, {

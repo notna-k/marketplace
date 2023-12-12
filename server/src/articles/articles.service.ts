@@ -1,41 +1,39 @@
 import {Injectable} from '@nestjs/common';
-import {CreateArticleDto} from "./dto/create-article";
-import {Article, ArticleCreationAttrs} from "./articles.model";
+import {Article} from "./articles.model";
 import {InjectModel} from "@nestjs/sequelize";
-import {FileService, FileType} from "../file/file.service";
+import {FileService} from "../file/file.service";
 import {Op} from "sequelize"
+import {CreateArticleBodyDto} from "./dto/create-article-body.dto";
+
 
 @Injectable()
 export class ArticlesService {
 
-    constructor(@InjectModel(Article) private articleRepository: typeof Article,
-                private fileService: FileService) {
+    constructor(@InjectModel(Article) private articleRepository: typeof Article) {
     }
 
-    async getAll(count: number = 10, offset: number = 0): Promise<Article[]>{
-        const articles = this.articleRepository.findAll({offset, limit: count});
+    async getAll(count = 10, offset = 0, title: string): Promise<Article[]> {
+        const articles = await Article.findAll({
+            offset,
+            limit: count,
+            where: {
+                title: {
+                    [Op.iLike]: `%${title}%`,
+                },
+            },
+            order: [
+                ['title', 'ASC'],
+            ],
+        });
         return articles;
     }
-
-    async search(query: string){
-        const articles = this.articleRepository.findAll({where: {
-            head: {[Op.iRegexp] : query}
-        }})
+    async getOne(id: number): Promise<Article>{
+        const articles = this.articleRepository.findByPk(id);
         return articles;
     }
-    async createArticle(createArticleDto: CreateArticleDto, userId: number, pictures: Express.Multer.File[]): Promise<Article>{
-        const {head, price, description, currency} = createArticleDto;
+    async createArticle(dto: CreateArticleBodyDto, userId: number, imageUrls: string[]): Promise<Article>{
 
-        let picturesStrs: string[] = [];
-        for(const file of pictures){
-            const TypeAndName =  await this.fileService.createFile(FileType.IMAGE, file);
-            const fileName = TypeAndName.split("/").pop();
-            picturesStrs.push(fileName);
-        }
-        const artileCreationAttrs: ArticleCreationAttrs = {pictures: picturesStrs, head, price, description, currency, userId};
-
-        const article = this.articleRepository.create(artileCreationAttrs);
-
+        const article = this.articleRepository.create({...dto, userId, images: imageUrls});
         return article;
     }
 }

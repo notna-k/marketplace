@@ -3,61 +3,60 @@ import {
     Controller,
     Get,
     HttpException, HttpStatus,
-    Post, Query,
-    Request,
+    Param,
+    Post,
+    Query,
     UploadedFiles,
     UseGuards,
     UseInterceptors
 } from '@nestjs/common';
 import {ArticlesService} from "./articles.service";
-import {CreateArticleDto} from "./dto/create-article";
-import {Article} from "./articles.model";
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {AuthGuard} from "../shared/guards/auth-guard";
+import {GetAllArticlesQueryDto} from "./dto/get-all-articles-query.dto";
+import {CreateArticleBodyDto} from "./dto/create-article-body.dto";
+import {FileService, FileType} from "../file/file.service";
+import {GetArticleParamDto} from "./dto/get-article-param.dto";
 
 @Controller('/articles')
 export class ArticlesController {
 
-    constructor(private readonly articlesService : ArticlesService
+    constructor(private readonly articlesService : ArticlesService,
+                private readonly fileService: FileService
     ) {}
 
 
-    @Get("/")
-    async getAll(@Query("count") count:number,
-                 @Query("offset") offset: number){
-        const articles = this.articlesService.getAll(count, offset);
+    @Get()
+    async getAllArticles(@Query() {count = 10, offset = 0, title}: GetAllArticlesQueryDto): Promise<any>{
+        const articles = await this.articlesService.getAll(count, offset, title);
+
         return articles;
     }
 
-    @Get("/search")
-    async search(@Query("query") query: string): Promise<Article[] | HttpException>{
-        try{
-            const articles = this.articlesService.search(query);
-            return articles;
-        } catch (e){
+    @Get(":id")
+    async getArticle(@Param() {id}: GetArticleParamDto): Promise<any>{
+        const article = await this.articlesService.getOne(id);
 
-            return new HttpException(e.message, HttpStatus.BAD_REQUEST);
-        }
+        if(!article) throw new HttpException("Article not found", HttpStatus.NOT_FOUND);
 
     }
 
     @Post("/create")
-    @UseGuards(AuthGuard)
     @UseInterceptors(FileFieldsInterceptor([
-        {name: 'picture', maxCount: 10}
+        {name: 'image', maxCount: 10}
     ]))
-    async createArticle(@Request() req, @Body() createArticleDto: CreateArticleDto,
-                        @UploadedFiles() files,
+    @UseGuards(AuthGuard)
+    async createArticle(@Body() body: CreateArticleBodyDto,
+                        @UploadedFiles() files: Express.Multer.File[]): Promise<any>{
 
-    ):Promise<Article>{
-        try {
-            const userId = req.payload['id'];
-            const {picture} = files;
+        const {id} = body.user;
+        const imageUrls = await Promise.all(files.map(async (file: Express.Multer.File) => {
+            return await this.fileService.createFile(FileType.IMAGE, file);
+        }));
 
 
-            const articles = this.articlesService.createArticle(createArticleDto, userId, picture);
-            return articles;
-        } catch(e) {console.log(e);}
+        const article = await this.articlesService.createArticle(body, id, imageUrls);
+        return article;
     }
 
 }

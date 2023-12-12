@@ -15,7 +15,7 @@ const jwt_1 = require("@nestjs/jwt");
 const articles_model_1 = require("./articles.model");
 const file_service_1 = require("../file/file.service");
 const articles_controller_1 = require("./articles.controller");
-const token_module_1 = require("../shared/token/token.module");
+const token_module_1 = require("../token/token.module");
 let ArticlesModule = class ArticlesModule {
 };
 exports.ArticlesModule = ArticlesModule;

@@ -16,33 +16,32 @@ exports.ArticlesService = void 0;
 const common_1 = require("@nestjs/common");
 const articles_model_1 = require("./articles.model");
 const sequelize_1 = require("@nestjs/sequelize");
-const file_service_1 = require("../file/file.service");
 const sequelize_2 = require("sequelize");
 let ArticlesService = class ArticlesService {
-    constructor(articleRepository, fileService) {
+    constructor(articleRepository) {
         this.articleRepository = articleRepository;
-        this.fileService = fileService;
     }
-    async getAll(count = 10, offset = 0) {
-        const articles = this.articleRepository.findAll({ offset, limit: count });
+    async getAll(count = 10, offset = 0, title) {
+        const articles = await articles_model_1.Article.findAll({
+            offset,
+            limit: count,
+            where: {
+                title: {
+                    [sequelize_2.Op.iLike]: `%${title}%`,
+                },
+            },
+            order: [
+                ['title', 'ASC'],
+            ],
+        });
         return articles;
     }
-    async search(query) {
-        const articles = this.articleRepository.findAll({ where: {
-                head: { [sequelize_2.Op.iRegexp]: query }
-            } });
+    async getOne(id) {
+        const articles = this.articleRepository.findByPk(id);
         return articles;
     }
-    async createArticle(createArticleDto, userId, pictures) {
-        const { head, price, description, currency } = createArticleDto;
-        let picturesStrs = [];
-        for (const file of pictures) {
-            const TypeAndName = await this.fileService.createFile(file_service_1.FileType.IMAGE, file);
-            const fileName = TypeAndName.split("/").pop();
-            picturesStrs.push(fileName);
-        }
-        const artileCreationAttrs = { pictures: picturesStrs, head, price, description, currency, userId };
-        const article = this.articleRepository.create(artileCreationAttrs);
+    async createArticle(dto, userId, imageUrls) {
+        const article = this.articleRepository.create({ ...dto, userId, images: imageUrls });
         return article;
     }
 };
@@ -50,6 +49,6 @@ exports.ArticlesService = ArticlesService;
 exports.ArticlesService = ArticlesService = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, sequelize_1.InjectModel)(articles_model_1.Article)),
-    __metadata("design:paramtypes", [Object, file_service_1.FileService])
+    __metadata("design:paramtypes", [Object])
 ], ArticlesService);
 //# sourceMappingURL=articles.service.js.map

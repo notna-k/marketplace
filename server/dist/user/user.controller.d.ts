@@ -1,6 +1,6 @@
 import { UserService } from "./user.service";
 import { SignInBodyDto } from "./dto/sign-in-body.dto";
-import { TokenService } from "../shared/token/token.service";
+import { TokenService } from "../token/token.service";
 import { SignUpBodyDto } from "./dto/sign-up-body.dto";
 import { ConfigService } from "@nestjs/config";
 import { Response } from "express";

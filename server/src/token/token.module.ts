@@ -1,10 +1,10 @@
 import {forwardRef, Module} from "@nestjs/common";
 import {JwtModule} from "@nestjs/jwt";
 import {TokenService} from "./token.service";
-import {UserModule} from "../../user/user.module";
-import {User} from "../../user/user.model";
+import {UserModule} from "../user/user.module";
+import {User} from "../user/user.model";
 import {ConfigModule, ConfigService} from "@nestjs/config";
-import {UserService} from "../../user/user.service";
+import {UserService} from "../user/user.service";
 
 @Module({
     controllers: [],

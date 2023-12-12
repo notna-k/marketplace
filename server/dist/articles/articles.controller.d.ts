@@ -1,11 +1,14 @@
-import { HttpException } from '@nestjs/common';
+/// <reference types="multer" />
 import { ArticlesService } from "./articles.service";
-import { CreateArticleDto } from "./dto/create-article";
-import { Article } from "./articles.model";
+import { GetAllArticlesQueryDto } from "./dto/get-all-articles-query.dto";
+import { CreateArticleBodyDto } from "./dto/create-article-body.dto";
+import { FileService } from "../file/file.service";
+import { GetArticleParamDto } from "./dto/get-article-param.dto";
 export declare class ArticlesController {
     private readonly articlesService;
-    constructor(articlesService: ArticlesService);
-    getAll(count: number, offset: number): Promise<Article[]>;
-    search(query: string): Promise<Article[] | HttpException>;
-    createArticle(req: any, createArticleDto: CreateArticleDto, files: any): Promise<Article>;
+    private readonly fileService;
+    constructor(articlesService: ArticlesService, fileService: FileService);
+    getAllArticles({ count, offset, title }: GetAllArticlesQueryDto): Promise<any>;
+    getArticle({ id }: GetArticleParamDto): Promise<any>;
+    createArticle(body: CreateArticleBodyDto, files: Express.Multer.File[]): Promise<any>;
 }

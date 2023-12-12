@@ -10,7 +10,7 @@ exports.TokenModule = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const token_service_1 = require("./token.service");
-const user_module_1 = require("../../user/user.module");
+const user_module_1 = require("../user/user.module");
 const config_1 = require("@nestjs/config");
 let TokenModule = class TokenModule {
 };

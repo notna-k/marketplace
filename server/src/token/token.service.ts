@@ -1,9 +1,9 @@
 import {forwardRef, Inject, Injectable} from "@nestjs/common";
-import {User} from "../../user/user.model";
+import {User} from "../user/user.model";
 import {JwtService} from "@nestjs/jwt";
-import {UserJwtPayload} from "../dto/auth-user.dto";
+import {UserJwtPayload} from "../shared/dto/auth-user.dto";
 import {ConfigService} from "@nestjs/config";
-import {UserService} from "../../user/user.service";
+import {UserService} from "../user/user.service";
 
 @Injectable()
 export class TokenService{
@@ -20,12 +20,13 @@ export class TokenService{
             email: user.email,
             isActivated: user.isActivated
         }
+        console.log(this.config.get("JWT_ACCESS_EXPIRES"))
         const accessToken = this.jwtService.sign(payload, {
-            secret: this.config.get("JWT_ACCESS_SECRET"), expiresIn:this.config.get("JWT_ACCESS_EXPIRES")
+            secret: this.config.get("JWT_ACCESS_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
         });
 
         const refreshToken = this.jwtService.sign(payload, {
-            secret: this.config.get("JWT_REFRESH_SECRET"), expiresIn:this.config.get("JWT_REFRESH_EXPIRES")
+            secret: this.config.get("JWT_REFRESH_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
         });
         return {accessToken, refreshToken};
     }

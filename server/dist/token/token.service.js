@@ -16,7 +16,7 @@ exports.TokenService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const config_1 = require("@nestjs/config");
-const user_service_1 = require("../../user/user.service");
+const user_service_1 = require("../user/user.service");
 let TokenService = class TokenService {
     constructor(jwtService, config, userService) {
         this.jwtService = jwtService;
@@ -29,11 +29,12 @@ let TokenService = class TokenService {
             email: user.email,
             isActivated: user.isActivated
         };
+        console.log(this.config.get("JWT_ACCESS_EXPIRES"));
         const accessToken = this.jwtService.sign(payload, {
             secret: this.config.get("JWT_ACCESS_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
         });
         const refreshToken = this.jwtService.sign(payload, {
-            secret: this.config.get("JWT_REFRESH_SECRET"), expiresIn: this.config.get("JWT_REFRESH_EXPIRES")
+            secret: this.config.get("JWT_REFRESH_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
         });
         return { accessToken, refreshToken };
     }

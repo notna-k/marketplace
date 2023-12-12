@@ -15,69 +15,65 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArticlesController = void 0;
 const common_1 = require("@nestjs/common");
 const articles_service_1 = require("./articles.service");
-const create_article_1 = require("./dto/create-article");
 const platform_express_1 = require("@nestjs/platform-express");
 const auth_guard_1 = require("../shared/guards/auth-guard");
+const get_all_articles_query_dto_1 = require("./dto/get-all-articles-query.dto");
+const create_article_body_dto_1 = require("./dto/create-article-body.dto");
+const file_service_1 = require("../file/file.service");
+const get_article_param_dto_1 = require("./dto/get-article-param.dto");
 let ArticlesController = class ArticlesController {
-    constructor(articlesService) {
+    constructor(articlesService, fileService) {
         this.articlesService = articlesService;
+        this.fileService = fileService;
     }
-    async getAll(count, offset) {
-        const articles = this.articlesService.getAll(count, offset);
+    async getAllArticles({ count = 10, offset = 0, title }) {
+        const articles = await this.articlesService.getAll(count, offset, title);
         return articles;
     }
-    async search(query) {
-        try {
-            const articles = this.articlesService.search(query);
-            return articles;
-        }
-        catch (e) {
-            return new common_1.HttpException(e.message, common_1.HttpStatus.BAD_REQUEST);
-        }
+    async getArticle({ id }) {
+        const article = await this.articlesService.getOne(id);
+        if (!article)
+            throw new common_1.HttpException("Article not found", common_1.HttpStatus.NOT_FOUND);
     }
-    async createArticle(req, createArticleDto, files) {
-        try {
-            const userId = req.payload['id'];
-            const { picture } = files;
-            const articles = this.articlesService.createArticle(createArticleDto, userId, picture);
-            return articles;
-        }
-        catch (e) {
-            console.log(e);
-        }
+    async createArticle(body, files) {
+        const { id } = body.user;
+        const imageUrls = await Promise.all(files.map(async (file) => {
+            return await this.fileService.createFile(file_service_1.FileType.IMAGE, file);
+        }));
+        const article = await this.articlesService.createArticle(body, id, imageUrls);
+        return article;
     }
 };
 exports.ArticlesController = ArticlesController;
 __decorate([
-    (0, common_1.Get)("/"),
-    __param(0, (0, common_1.Query)("count")),
-    __param(1, (0, common_1.Query)("offset")),
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, Number]),
+    __metadata("design:paramtypes", [get_all_articles_query_dto_1.GetAllArticlesQueryDto]),
     __metadata("design:returntype", Promise)
-], ArticlesController.prototype, "getAll", null);
+], ArticlesController.prototype, "getAllArticles", null);
 __decorate([
-    (0, common_1.Get)("/search"),
-    __param(0, (0, common_1.Query)("query")),
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [get_article_param_dto_1.GetArticleParamDto]),
     __metadata("design:returntype", Promise)
-], ArticlesController.prototype, "search", null);
+], ArticlesController.prototype, "getArticle", null);
 __decorate([
     (0, common_1.Post)("/create"),
-    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.UseInterceptors)((0, platform_express_1.FileFieldsInterceptor)([
-        { name: 'picture', maxCount: 10 }
+        { name: 'image', maxCount: 10 }
     ])),
-    __param(0, (0, common_1.Request)()),
-    __param(1, (0, common_1.Body)()),
-    __param(2, (0, common_1.UploadedFiles)()),
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.UploadedFiles)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, create_article_1.CreateArticleDto, Object]),
+    __metadata("design:paramtypes", [create_article_body_dto_1.CreateArticleBodyDto, Array]),
     __metadata("design:returntype", Promise)
 ], ArticlesController.prototype, "createArticle", null);
 exports.ArticlesController = ArticlesController = __decorate([
     (0, common_1.Controller)('/articles'),
-    __metadata("design:paramtypes", [articles_service_1.ArticlesService])
+    __metadata("design:paramtypes", [articles_service_1.ArticlesService,
+        file_service_1.FileService])
 ], ArticlesController);
 //# sourceMappingURL=articles.controller.js.map

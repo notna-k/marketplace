@@ -16,18 +16,24 @@ var FileType;
     FileType["IMAGE"] = "image";
 })(FileType || (exports.FileType = FileType = {}));
 let FileService = class FileService {
+    constructor() {
+        this.allowedImageExtensions = ['jpg', 'jpeg', 'png'];
+    }
     async createFile(fileType, file) {
-        try {
-            const fileExtension = file.originalname.split('.').pop();
-            const fileName = uuid.v4() + "." + fileExtension;
-            const filePath = path.resolve(__dirname, '..', '..', 'static', 'image');
-            if (!fs.existsSync(filePath))
-                fs.mkdirSync(filePath, { recursive: true });
-            fs.writeFileSync(path.join(filePath, fileName), file.buffer);
-            return fileType + "/" + fileName;
-        }
-        catch (e) {
-            console.log(e);
+        const fileExtension = file.originalname.split('.').pop();
+        if (!this.isAllowedExtension(fileExtension, fileType))
+            throw new common_1.HttpException("Wrong file type provided", common_1.HttpStatus.BAD_REQUEST);
+        const fileName = uuid.v4() + "." + fileExtension;
+        const filePath = path.resolve(__dirname, '..', '..', 'static', fileType);
+        if (!fs.existsSync(filePath))
+            fs.mkdirSync(filePath, { recursive: true });
+        fs.writeFileSync(path.join(filePath, fileName), file.buffer);
+        return fileName;
+    }
+    isAllowedExtension(extension, fileType) {
+        switch (fileType) {
+            case "image":
+                return this.allowedImageExtensions.includes(extension);
         }
     }
 };
