@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, } from 'react';
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Navbar from "react-bootstrap/Navbar";
@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {NavLink, useNavigate} from "react-router-dom";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
-import {UserService} from "../API/user/userService";
 
 
 const NavBar = observer( () => {

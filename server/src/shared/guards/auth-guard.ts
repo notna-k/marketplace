@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
         }
         try {
             const payload = this.tokenService.validateAccessToken(accessToken);
-            request.body.user = payload;
+            request.user = payload;
             return true;
         } catch (e) {
             throw new HttpException("Not authorized", HttpStatus.UNAUTHORIZED)

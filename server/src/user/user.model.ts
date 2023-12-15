@@ -28,7 +28,7 @@ export class User extends Model<User, UserCreationAttrs>{
     password: string;
 
     @Column({type: DataType.STRING, allowNull: true})
-    profilePhotos: string;
+    profilePhoto: string;
 
     @Column({type: DataType.ARRAY(DataType.STRING), defaultValue : ["USER"], allowNull : false})
     groups: string[];
@@ -39,9 +39,6 @@ export class User extends Model<User, UserCreationAttrs>{
     @Column({type: DataType.STRING, allowNull: true})
     city : string;
 
-    @HasMany(() => Article)
-    articles: Article[];
-
     @Column({type: DataType.BOOLEAN, defaultValue: false})
     isActivated: boolean;
 
@@ -50,6 +47,10 @@ export class User extends Model<User, UserCreationAttrs>{
 
     @Column({type: DataType.STRING, allowNull: true})
     activationLink: string;
+
+
+    @HasMany(() => Article, 'userId')
+    articles: Article[];
 
 
 

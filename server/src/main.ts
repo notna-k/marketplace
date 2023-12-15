@@ -22,7 +22,7 @@ const docsConfig = new DocumentBuilder()
 
   app.enableCors({
    origin: [config.get('CLIENT_URL'), 'http://localhost:3000'],
-   credentials: true,
+   credentials: false,
   })
 
   app.use(cookieParser())

@@ -33,7 +33,7 @@ export class ArticlesService {
     }
     async createArticle(dto: CreateArticleBodyDto, userId: number, imageUrls: string[]): Promise<Article>{
 
-        const article = this.articleRepository.create({...dto, userId, images: imageUrls});
+        const article = this.articleRepository.create({...dto, userId, images: imageUrls, date: new Date()});
         return article;
     }
 }

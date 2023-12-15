@@ -21,16 +21,24 @@ const sign_up_body_dto_1 = require("./dto/sign-up-body.dto");
 const config_1 = require("@nestjs/config");
 const auth_guard_1 = require("../shared/guards/auth-guard");
 const auth_user_dto_1 = require("../shared/dto/auth-user.dto");
+const user_decorator_1 = require("../shared/decorators/user.decorator");
 let UserController = class UserController {
     constructor(usersService, tokenService, config) {
         this.usersService = usersService;
         this.tokenService = tokenService;
         this.config = config;
     }
-    async getProfile(body) {
-        const { id } = body.user;
-        const user = await this.usersService.getUserById(id);
-        return user;
+    async getProfile(user) {
+        const { id } = user;
+        const foundUser = await this.usersService.getUserById(id);
+        return foundUser;
+    }
+    async getUserArticles(id) {
+        const foundUser = await this.usersService.getUserById(id);
+        if (!foundUser)
+            throw new common_1.HttpException("User not found", common_1.HttpStatus.NOT_FOUND);
+        const { name, city, region, email, profilePhoto, articles } = foundUser;
+        return { name, city, region, email, profilePhoto, articles: articles };
     }
     async signIn({ email, password }, res) {
         const user = await this.usersService.getUserByEmail(email);
@@ -47,7 +55,6 @@ let UserController = class UserController {
         if (existUser)
             throw new common_1.HttpException("User with given email already exists", common_1.HttpStatus.BAD_REQUEST);
         const user = await this.usersService.createUser(body);
-        console.log(Number(this.config.get("JWT_REFRESH_EXPIRES").slice(0, -1)) * 24 * 60 * 60 * 1000);
         const { refreshToken, accessToken } = await this.tokenService.createTokens(user);
         await this.usersService.saveRefreshToken(refreshToken, user.id);
         res.cookie('refreshToken', refreshToken, {
@@ -68,11 +75,18 @@ exports.UserController = UserController;
 __decorate([
     (0, common_1.Get)(),
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
-    __param(0, (0, common_1.Body)()),
+    __param(0, (0, user_decorator_1.User)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [auth_user_dto_1.AuthUserDto]),
+    __metadata("design:paramtypes", [auth_user_dto_1.UserJwtPayload]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "getProfile", null);
+__decorate([
+    (0, common_1.Get)(":id"),
+    __param(0, (0, common_1.Param)("id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], UserController.prototype, "getUserArticles", null);
 __decorate([
     (0, common_1.Post)("sign_in"),
     __param(0, (0, common_1.Body)()),

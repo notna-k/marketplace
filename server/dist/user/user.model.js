@@ -38,7 +38,7 @@ __decorate([
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: true }),
     __metadata("design:type", String)
-], User.prototype, "profilePhotos", void 0);
+], User.prototype, "profilePhoto", void 0);
 __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.ARRAY(sequelize_typescript_1.DataType.STRING), defaultValue: ["USER"], allowNull: false }),
     __metadata("design:type", Array)
@@ -52,10 +52,6 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "city", void 0);
 __decorate([
-    (0, sequelize_typescript_1.HasMany)(() => articles_model_1.Article),
-    __metadata("design:type", Array)
-], User.prototype, "articles", void 0);
-__decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.BOOLEAN, defaultValue: false }),
     __metadata("design:type", Boolean)
 ], User.prototype, "isActivated", void 0);
@@ -67,6 +63,10 @@ __decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: true }),
     __metadata("design:type", String)
 ], User.prototype, "activationLink", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasMany)(() => articles_model_1.Article, 'userId'),
+    __metadata("design:type", Array)
+], User.prototype, "articles", void 0);
 exports.User = User = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: "User" })
 ], User);

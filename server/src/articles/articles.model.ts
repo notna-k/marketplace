@@ -4,22 +4,19 @@ import {User} from "../user/user.model";
 import {CurrencyType} from "../shared/constants/currency-type";
 
 export interface ArticleCreationAttrs{
-    head : string;
+    title : string;
     description : string;
     price: number;
     currency: string;
     images: string[];
     userId: number;
+    date: Date;
 }
 @Table({tableName: "articles"})
 export class Article extends Model<Article, ArticleCreationAttrs>{
 
     @Column({type: DataType.INTEGER, unique: true, autoIncrement:true, primaryKey: true})
     id: number;
-
-    @ForeignKey(() => User)
-    @Column({type: DataType.INTEGER, allowNull: false})
-    userId: number;
 
     @Column({type: DataType.STRING, allowNull : false})
     title: string;
@@ -36,9 +33,16 @@ export class Article extends Model<Article, ArticleCreationAttrs>{
     @Column({type: DataType.ARRAY(DataType.STRING), allowNull: true})
     images: string[];
 
+    @Column({type: DataType.DATE, allowNull: false})
+    date: Date;
 
 
-    @BelongsTo(() => User)
+
+    @ForeignKey(() => User)
+    @Column({ type: DataType.INTEGER, allowNull: false })
+    userId: number;
+
+    @BelongsTo(() => User, 'userId')
     user: User;
 
 }

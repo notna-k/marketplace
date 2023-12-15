@@ -1,6 +1,6 @@
 import React, {FormEvent, useContext, useState} from 'react';
 import {Card, Container, Form, FormControl, Button, Row, Col} from "react-bootstrap";
-import {UserService} from "../API/user/userService";
+import {UserService} from "../API/user/user-service";
 import {Context} from "../index";
 import {NavLink, useLocation, useNavigate} from "react-router-dom";
 
@@ -24,15 +24,15 @@ const Auth = () => {
 
         switch(endPoint){
             case "/login":
-                accessToken = await UserService.login(formData);
+                let res = await UserService.login(formData);
                 userStore.setIsAuth(true);
-                localStorage.setItem("accessToken", accessToken);
+                localStorage.setItem("accessToken", res.data);
                 router("/home")
                 break;
             case '/register':
-                await UserService.register(formData)
+                res = await UserService.register(formData)
                 userStore.setIsAuth(true);
-                localStorage.setItem("accessToken", accessToken);
+                localStorage.setItem("accessToken", res.data['accessToken']);
                 router("/home")
                 break;
         }

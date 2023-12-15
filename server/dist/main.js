@@ -18,7 +18,7 @@ async function start() {
     const config = app.get(config_1.ConfigService);
     app.enableCors({
         origin: [config.get('CLIENT_URL'), 'http://localhost:3000'],
-        credentials: true,
+        credentials: false,
     });
     app.use(cookieParser());
     app.useGlobalPipes(new common_1.ValidationPipe({

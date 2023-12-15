@@ -21,12 +21,14 @@ const get_all_articles_query_dto_1 = require("./dto/get-all-articles-query.dto")
 const create_article_body_dto_1 = require("./dto/create-article-body.dto");
 const file_service_1 = require("../file/file.service");
 const get_article_param_dto_1 = require("./dto/get-article-param.dto");
+const auth_user_dto_1 = require("../shared/dto/auth-user.dto");
+const user_decorator_1 = require("../shared/decorators/user.decorator");
 let ArticlesController = class ArticlesController {
     constructor(articlesService, fileService) {
         this.articlesService = articlesService;
         this.fileService = fileService;
     }
-    async getAllArticles({ count = 10, offset = 0, title }) {
+    async getAllArticles({ count = 10, offset = 0, title = "" }) {
         const articles = await this.articlesService.getAll(count, offset, title);
         return articles;
     }
@@ -35,9 +37,11 @@ let ArticlesController = class ArticlesController {
         if (!article)
             throw new common_1.HttpException("Article not found", common_1.HttpStatus.NOT_FOUND);
     }
-    async createArticle(body, files) {
-        const { id } = body.user;
-        const imageUrls = await Promise.all(files.map(async (file) => {
+    async createArticle(body, user, files) {
+        if (!files)
+            throw new common_1.HttpException("No images provided", common_1.HttpStatus.BAD_REQUEST);
+        const { id } = user;
+        const imageUrls = await Promise.all(files.image.map(async (file) => {
             return await this.fileService.createFile(file_service_1.FileType.IMAGE, file);
         }));
         const article = await this.articlesService.createArticle(body, id, imageUrls);
@@ -61,14 +65,16 @@ __decorate([
 ], ArticlesController.prototype, "getArticle", null);
 __decorate([
     (0, common_1.Post)("/create"),
-    (0, common_1.UseInterceptors)((0, platform_express_1.FileFieldsInterceptor)([
-        { name: 'image', maxCount: 10 }
-    ])),
     (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
+    (0, common_1.UseInterceptors)((0, platform_express_1.FileFieldsInterceptor)([
+        { name: "image", maxCount: 10 }
+    ])),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.UploadedFiles)()),
+    __param(1, (0, user_decorator_1.User)()),
+    __param(2, (0, common_1.UploadedFiles)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_article_body_dto_1.CreateArticleBodyDto, Array]),
+    __metadata("design:paramtypes", [create_article_body_dto_1.CreateArticleBodyDto,
+        auth_user_dto_1.UserJwtPayload, Object]),
     __metadata("design:returntype", Promise)
 ], ArticlesController.prototype, "createArticle", null);
 exports.ArticlesController = ArticlesController = __decorate([

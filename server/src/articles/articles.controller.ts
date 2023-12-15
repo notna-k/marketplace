@@ -5,18 +5,20 @@ import {
     HttpException, HttpStatus,
     Param,
     Post,
-    Query,
-    UploadedFiles,
+    Query, Req, UploadedFile, UploadedFiles,
     UseGuards,
     UseInterceptors
 } from '@nestjs/common';
 import {ArticlesService} from "./articles.service";
-import {FileFieldsInterceptor} from "@nestjs/platform-express";
+import {FileFieldsInterceptor, FileInterceptor} from "@nestjs/platform-express";
 import {AuthGuard} from "../shared/guards/auth-guard";
 import {GetAllArticlesQueryDto} from "./dto/get-all-articles-query.dto";
 import {CreateArticleBodyDto} from "./dto/create-article-body.dto";
 import {FileService, FileType} from "../file/file.service";
 import {GetArticleParamDto} from "./dto/get-article-param.dto";
+import {UserJwtPayload} from "../shared/dto/auth-user.dto";
+import {User} from "src/shared/decorators/user.decorator"
+import {ValidationError} from "class-validator";
 
 @Controller('/articles')
 export class ArticlesController {
@@ -27,7 +29,7 @@ export class ArticlesController {
 
 
     @Get()
-    async getAllArticles(@Query() {count = 10, offset = 0, title}: GetAllArticlesQueryDto): Promise<any>{
+    async getAllArticles(@Query() {count = 10, offset = 0, title = ""}: GetAllArticlesQueryDto): Promise<any>{
         const articles = await this.articlesService.getAll(count, offset, title);
 
         return articles;
@@ -42,18 +44,19 @@ export class ArticlesController {
     }
 
     @Post("/create")
-    @UseInterceptors(FileFieldsInterceptor([
-        {name: 'image', maxCount: 10}
-    ]))
     @UseGuards(AuthGuard)
+    @UseInterceptors(FileFieldsInterceptor([
+        {name:"image", maxCount:10}
+    ]))
     async createArticle(@Body() body: CreateArticleBodyDto,
-                        @UploadedFiles() files: Express.Multer.File[]): Promise<any>{
+                        @User() user: UserJwtPayload,
+                        @UploadedFiles() files: any): Promise<any>{
+        if(!files) throw new HttpException("No images provided", HttpStatus.BAD_REQUEST);
 
-        const {id} = body.user;
-        const imageUrls = await Promise.all(files.map(async (file: Express.Multer.File) => {
+        const {id} = user;
+        const imageUrls = await Promise.all(files.image.map(async (file: Express.Multer.File) => {
             return await this.fileService.createFile(FileType.IMAGE, file);
         }));
-
 
         const article = await this.articlesService.createArticle(body, id, imageUrls);
         return article;

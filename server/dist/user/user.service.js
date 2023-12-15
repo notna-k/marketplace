@@ -17,12 +17,21 @@ const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
 const user_model_1 = require("./user.model");
 const bcrypt = require("bcrypt");
+const articles_model_1 = require("../articles/articles.model");
 let UserService = class UserService {
     constructor(userRepository) {
         this.userRepository = userRepository;
     }
     async getUserById(id) {
-        const user = this.userRepository.findOne({ where: { id: id } });
+        const user = await user_model_1.User.findOne({
+            where: { id },
+            include: [
+                {
+                    model: articles_model_1.Article,
+                    attributes: ['id']
+                },
+            ],
+        });
         return user;
     }
     async getUserByEmail(email) {

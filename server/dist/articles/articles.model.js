@@ -21,11 +21,6 @@ __decorate([
     __metadata("design:type", Number)
 ], Article.prototype, "id", void 0);
 __decorate([
-    (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.User),
-    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, allowNull: false }),
-    __metadata("design:type", Number)
-], Article.prototype, "userId", void 0);
-__decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
 ], Article.prototype, "title", void 0);
@@ -46,7 +41,16 @@ __decorate([
     __metadata("design:type", Array)
 ], Article.prototype, "images", void 0);
 __decorate([
-    (0, sequelize_typescript_1.BelongsTo)(() => user_model_1.User),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DATE, allowNull: false }),
+    __metadata("design:type", Date)
+], Article.prototype, "date", void 0);
+__decorate([
+    (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.User),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, allowNull: false }),
+    __metadata("design:type", Number)
+], Article.prototype, "userId", void 0);
+__decorate([
+    (0, sequelize_typescript_1.BelongsTo)(() => user_model_1.User, 'userId'),
     __metadata("design:type", user_model_1.User)
 ], Article.prototype, "user", void 0);
 exports.Article = Article = __decorate([

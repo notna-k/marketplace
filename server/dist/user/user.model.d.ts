@@ -11,13 +11,13 @@ export declare class User extends Model<User, UserCreationAttrs> {
     email: string;
     phoneNumber: string;
     password: string;
-    profilePhotos: string;
+    profilePhoto: string;
     groups: string[];
     region: string;
     city: string;
-    articles: Article[];
     isActivated: boolean;
     refreshToken: string;
     activationLink: string;
+    articles: Article[];
 }
 export {};

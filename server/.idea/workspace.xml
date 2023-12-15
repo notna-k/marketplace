@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/API/article/article-entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/API/user/user-entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/CreateItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/article/articleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/article/articleService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/article/articleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/article/article-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/user/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/user/user-service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/ArticleList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/CreateArticle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/UserProfile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/notna/Projects/TrainingClub/trx_training_back",
+    "last_opened_file_path": "/home/notna/Projects/JS_Projects/MarketPlace/server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shared" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -132,6 +140,8 @@
       <workItem from="1702288706357" duration="5475000" />
       <workItem from="1702370197681" duration="8616000" />
       <workItem from="1702400619977" duration="33000" />
+      <workItem from="1702541326593" duration="9242000" />
+      <workItem from="1702554991284" duration="4343000" />
     </task>
     <servers />
   </component>

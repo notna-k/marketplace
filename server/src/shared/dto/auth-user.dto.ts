@@ -1,4 +1,4 @@
-import {IsBoolean, IsNotEmpty, IsNumber, IsObject, IsString} from "class-validator";
+import {IsBoolean, IsNotEmpty, IsNumber, IsObject, IsOptional, IsString} from "class-validator";
 
 export class UserJwtPayload{
     @IsNotEmpty()
@@ -15,7 +15,7 @@ export class UserJwtPayload{
 }
 
 export class AuthUserDto{
+    @IsOptional()
     @IsObject()
-    @IsNotEmpty()
     user: UserJwtPayload
 }

@@ -1,18 +1,21 @@
-import {IsEnum, IsNotEmpty, IsNumberString, IsString} from "class-validator";
+import {IsEnum, IsNotEmpty, IsNumberString, IsOptional, IsPositive, IsString} from "class-validator";
 import {CurrencyType} from "../../shared/constants/currency-type";
-import {AuthUserDto} from "../../shared/dto/auth-user.dto";
+import {Transform} from "class-transformer";
 
-export class CreateArticleBodyDto extends AuthUserDto{
-    @IsString()
+export class CreateArticleBodyDto{
     @IsNotEmpty()
+    @IsString()
     title : string;
 
     @IsString()
     description : string;
 
-    @IsNumberString()
+    @IsNotEmpty()
+    @Transform((value) => {return Number(value.value)})
+    @IsPositive()
     price: number;
 
+    @IsNotEmpty()
     @IsEnum(CurrencyType)
     currency: string;
 }

@@ -2,22 +2,20 @@ import {
     Body,
     Controller, forwardRef,
     Get,
-    HttpException, HttpStatus, Inject,
+    HttpException, HttpStatus, Inject, Param,
     Post, Req,
     Res, UseGuards
 } from '@nestjs/common';
 import {UserService} from "./user.service";
-import {GetProfileBodyDto} from "./dto/get-profile-body.dto";
 import {SignInBodyDto} from "./dto/sign-in-body.dto";
 import {TokenService} from "../token/token.service";
 import {SignUpBodyDto} from "./dto/sign-up-body.dto";
 import {ConfigService} from "@nestjs/config";
 import {Response} from "express"
 import {AuthGuard} from "../shared/guards/auth-guard";
-import {RefreshTokenBodyDto} from "./dto/refresh-token-body.dto";
-import Cookies from "nodemailer/lib/fetch/cookies";
-import {AuthUserDto} from "../shared/dto/auth-user.dto";
-import ms from "ms";
+
+import {UserJwtPayload} from "../shared/dto/auth-user.dto";
+import {User} from "../shared/decorators/user.decorator";
 
 
 @Controller('user')
@@ -32,13 +30,23 @@ export class UserController {
 
     @Get()
     @UseGuards(AuthGuard)
-    async getProfile(@Body() body: AuthUserDto): Promise<any> {
+    async getProfile(@User() user: UserJwtPayload): Promise<any> {
 
-        const {id} = body.user;
+        const {id} = user;
 
-        const user = await this.usersService.getUserById(id);
-        return user;
+        const foundUser = await this.usersService.getUserById(id);
+        return foundUser;
 
+    }
+
+    @Get(":id")
+    async getUserArticles(@Param("id") id: number): Promise<any>{
+
+        const foundUser = await this.usersService.getUserById(id);
+        if (!foundUser) throw new HttpException("User not found", HttpStatus.NOT_FOUND);
+
+        const {name, city, region, email, profilePhoto, articles} = foundUser;
+        return {name, city, region, email, profilePhoto, articles: articles};
     }
 
     @Post("sign_in")
@@ -64,7 +72,6 @@ export class UserController {
 
 
         const user = await this.usersService.createUser(body);
-        console.log(Number(this.config.get("JWT_REFRESH_EXPIRES").slice(0,-1)) * 24*60*60*1000)
         const {refreshToken, accessToken} = await this.tokenService.createTokens(user);
 
         await this.usersService.saveRefreshToken(refreshToken, user.id);

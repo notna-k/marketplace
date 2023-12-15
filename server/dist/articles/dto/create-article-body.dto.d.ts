@@ -1,5 +1,4 @@
-import { AuthUserDto } from "../../shared/dto/auth-user.dto";
-export declare class CreateArticleBodyDto extends AuthUserDto {
+export declare class CreateArticleBodyDto {
     title: string;
     description: string;
     price: number;

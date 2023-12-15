@@ -28,7 +28,7 @@ let AuthGuard = class AuthGuard {
         }
         try {
             const payload = this.tokenService.validateAccessToken(accessToken);
-            request.body.user = payload;
+            request.user = payload;
             return true;
         }
         catch (e) {

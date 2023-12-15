@@ -12,13 +12,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateArticleBodyDto = void 0;
 const class_validator_1 = require("class-validator");
 const currency_type_1 = require("../../shared/constants/currency-type");
-const auth_user_dto_1 = require("../../shared/dto/auth-user.dto");
-class CreateArticleBodyDto extends auth_user_dto_1.AuthUserDto {
+const class_transformer_1 = require("class-transformer");
+class CreateArticleBodyDto {
 }
 exports.CreateArticleBodyDto = CreateArticleBodyDto;
 __decorate([
-    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
 ], CreateArticleBodyDto.prototype, "title", void 0);
 __decorate([
@@ -26,10 +26,13 @@ __decorate([
     __metadata("design:type", String)
 ], CreateArticleBodyDto.prototype, "description", void 0);
 __decorate([
-    (0, class_validator_1.IsNumberString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_transformer_1.Transform)((value) => { return Number(value.value); }),
+    (0, class_validator_1.IsPositive)(),
     __metadata("design:type", Number)
 ], CreateArticleBodyDto.prototype, "price", void 0);
 __decorate([
+    (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsEnum)(currency_type_1.CurrencyType),
     __metadata("design:type", String)
 ], CreateArticleBodyDto.prototype, "currency", void 0);

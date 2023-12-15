@@ -20,13 +20,12 @@ export class TokenService{
             email: user.email,
             isActivated: user.isActivated
         }
-        console.log(this.config.get("JWT_ACCESS_EXPIRES"))
         const accessToken = this.jwtService.sign(payload, {
             secret: this.config.get("JWT_ACCESS_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
         });
 
         const refreshToken = this.jwtService.sign(payload, {
-            secret: this.config.get("JWT_REFRESH_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
+            secret: this.config.get("JWT_REFRESH_SECRET"), expiresIn: this.config.get("JWT_REFRESH_EXPIRES")
         });
         return {accessToken, refreshToken};
     }

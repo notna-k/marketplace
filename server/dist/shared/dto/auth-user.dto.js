@@ -33,8 +33,8 @@ class AuthUserDto {
 }
 exports.AuthUserDto = AuthUserDto;
 __decorate([
+    (0, class_validator_1.IsOptional)(),
     (0, class_validator_1.IsObject)(),
-    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", UserJwtPayload)
 ], AuthUserDto.prototype, "user", void 0);
 //# sourceMappingURL=auth-user.dto.js.map

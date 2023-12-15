@@ -41,7 +41,7 @@ let ArticlesService = class ArticlesService {
         return articles;
     }
     async createArticle(dto, userId, imageUrls) {
-        const article = this.articleRepository.create({ ...dto, userId, images: imageUrls });
+        const article = this.articleRepository.create({ ...dto, userId, images: imageUrls, date: new Date() });
         return article;
     }
 };
