@@ -16,7 +16,7 @@ exports.TokenService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const config_1 = require("@nestjs/config");
-const user_service_1 = require("../user/user.service");
+const users_service_1 = require("../users/users.service");
 let TokenService = class TokenService {
     constructor(jwtService, config, userService) {
         this.jwtService = jwtService;
@@ -67,13 +67,22 @@ let TokenService = class TokenService {
             return { accessToken };
         }
     }
+    async logout(refreshToken) {
+        const payload = this.validateRefreshToken(refreshToken);
+        const { id, email, isActivated } = payload;
+        const dbRefreshToken = await this.userService.getRefreshToken(id);
+        if (dbRefreshToken === refreshToken) {
+            const token = await this.userService.removeRefreshToken(id);
+            return { refreshToken: token };
+        }
+    }
 };
 exports.TokenService = TokenService;
 exports.TokenService = TokenService = __decorate([
     (0, common_1.Injectable)(),
-    __param(2, (0, common_1.Inject)((0, common_1.forwardRef)(() => user_service_1.UserService))),
+    __param(2, (0, common_1.Inject)((0, common_1.forwardRef)(() => users_service_1.UsersService))),
     __metadata("design:paramtypes", [jwt_1.JwtService,
         config_1.ConfigService,
-        user_service_1.UserService])
+        users_service_1.UsersService])
 ], TokenService);
 //# sourceMappingURL=token.service.js.map

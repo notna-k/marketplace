@@ -8,7 +8,8 @@ export declare class ArticlesController {
     private readonly articlesService;
     private readonly fileService;
     constructor(articlesService: ArticlesService, fileService: FileService);
-    getAllArticles({ count, offset, title }: GetAllArticlesQueryDto): Promise<any>;
+    getAllArticles({ count, offset, title, category }: GetAllArticlesQueryDto): Promise<any>;
     getArticle({ id }: GetArticleParamDto): Promise<any>;
     createArticle(body: CreateArticleBodyDto, user: UserJwtPayload, files: any): Promise<any>;
+    getArticlesCount(): Promise<number>;
 }

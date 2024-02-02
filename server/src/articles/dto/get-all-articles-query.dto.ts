@@ -1,20 +1,23 @@
-import {IsNumberString, IsOptional, IsPositive, IsString} from "class-validator";
+import {IsEnum, IsNumber, IsOptional, IsPositive, IsString} from "class-validator";
 import {Transform, TransformFnParams} from "class-transformer";
+import {ArticleCategories} from "../../shared/constants/article-categories";
 
 export class GetAllArticlesQueryDto{
     @IsOptional()
-    @IsNumberString()
-    @Transform((value: TransformFnParams) => Number(value.value))
     @IsPositive()
+    @Transform((value: TransformFnParams) => Number(value.value))
     count: number;
 
     @IsOptional()
-    @IsNumberString()
+    @IsNumber()
     @Transform((value: TransformFnParams) => Number(value.value))
-    @IsPositive()
     offset: number;
 
     @IsOptional()
     @IsString()
     title: string;
+
+    @IsEnum(ArticleCategories)
+    @IsOptional()
+    category: ArticleCategories;
 }

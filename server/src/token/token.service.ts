@@ -1,16 +1,16 @@
 import {forwardRef, Inject, Injectable} from "@nestjs/common";
-import {User} from "../user/user.model";
+import {User} from "../users/users.model";
 import {JwtService} from "@nestjs/jwt";
 import {UserJwtPayload} from "../shared/dto/auth-user.dto";
 import {ConfigService} from "@nestjs/config";
-import {UserService} from "../user/user.service";
+import {UsersService} from "../users/users.service";
 
 @Injectable()
 export class TokenService{
     constructor(
         private jwtService: JwtService,
         private config: ConfigService,
-        @Inject(forwardRef(() => UserService))private userService: UserService
+        @Inject(forwardRef(() => UsersService))private userService: UsersService
     ) {
     }
 
@@ -63,6 +63,16 @@ export class TokenService{
                 secret: this.config.get("JWT_ACCESS_SECRET"), expiresIn: this.config.get("JWT_ACCESS_EXPIRES")
             })
             return {accessToken};
+        }
+    }
+
+    async logout(refreshToken: string): Promise<{refreshToken: string}>{
+        const payload = this.validateRefreshToken(refreshToken);
+        const {id, email, isActivated} = payload;
+        const dbRefreshToken = await this.userService.getRefreshToken(id);
+        if(dbRefreshToken === refreshToken){
+            const token = await this.userService.removeRefreshToken(id);
+            return {refreshToken: token}
         }
     }
 

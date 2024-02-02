@@ -1,13 +1,13 @@
-import { User } from "../user/user.model";
+import { User } from "../users/users.model";
 import { JwtService } from "@nestjs/jwt";
 import { UserJwtPayload } from "../shared/dto/auth-user.dto";
 import { ConfigService } from "@nestjs/config";
-import { UserService } from "../user/user.service";
+import { UsersService } from "../users/users.service";
 export declare class TokenService {
     private jwtService;
     private config;
     private userService;
-    constructor(jwtService: JwtService, config: ConfigService, userService: UserService);
+    constructor(jwtService: JwtService, config: ConfigService, userService: UsersService);
     createTokens(user: User): Promise<{
         accessToken: string;
         refreshToken: string;
@@ -17,5 +17,8 @@ export declare class TokenService {
     removeRefreshToken(refreshToken: string): Promise<string>;
     refreshToken(refreshToken: string): Promise<{
         accessToken: string;
+    }>;
+    logout(refreshToken: string): Promise<{
+        refreshToken: string;
     }>;
 }

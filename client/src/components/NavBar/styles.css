@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #343a40;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    color: lightcyan;
+    font-family: monospace;
+    font-size: 24px;
+    margin-left: 6px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    color: lightcyan;
+    border: 1px solid lightcyan;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: 8px;
+    cursor: pointer;
+}

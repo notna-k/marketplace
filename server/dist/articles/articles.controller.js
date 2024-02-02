@@ -28,8 +28,8 @@ let ArticlesController = class ArticlesController {
         this.articlesService = articlesService;
         this.fileService = fileService;
     }
-    async getAllArticles({ count = 10, offset = 0, title = "" }) {
-        const articles = await this.articlesService.getAll(count, offset, title);
+    async getAllArticles({ count = 10, offset = 0, title = "", category }) {
+        const articles = await this.articlesService.getAll(count, offset, title, category);
         return articles;
     }
     async getArticle({ id }) {
@@ -47,6 +47,10 @@ let ArticlesController = class ArticlesController {
         const article = await this.articlesService.createArticle(body, id, imageUrls);
         return article;
     }
+    async getArticlesCount() {
+        const number = this.articlesService.getArticlesCount();
+        return number;
+    }
 };
 exports.ArticlesController = ArticlesController;
 __decorate([
@@ -57,7 +61,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ArticlesController.prototype, "getAllArticles", null);
 __decorate([
-    (0, common_1.Get)(":id"),
+    (0, common_1.Get)("id/:id"),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [get_article_param_dto_1.GetArticleParamDto]),
@@ -77,8 +81,14 @@ __decorate([
         auth_user_dto_1.UserJwtPayload, Object]),
     __metadata("design:returntype", Promise)
 ], ArticlesController.prototype, "createArticle", null);
+__decorate([
+    (0, common_1.Get)("count"),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], ArticlesController.prototype, "getArticlesCount", null);
 exports.ArticlesController = ArticlesController = __decorate([
-    (0, common_1.Controller)('/articles'),
+    (0, common_1.Controller)('/article'),
     __metadata("design:paramtypes", [articles_service_1.ArticlesService,
         file_service_1.FileService])
 ], ArticlesController);

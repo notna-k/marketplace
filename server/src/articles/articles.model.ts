@@ -1,7 +1,8 @@
 
 import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
-import {User} from "../user/user.model";
+import {User} from "../users/users.model";
 import {CurrencyType} from "../shared/constants/currency-type";
+import {ArticleCategories} from "../shared/constants/article-categories";
 
 export interface ArticleCreationAttrs{
     title : string;
@@ -10,6 +11,7 @@ export interface ArticleCreationAttrs{
     currency: string;
     images: string[];
     userId: number;
+    category: ArticleCategories;
     date: Date;
 }
 @Table({tableName: "articles"})
@@ -29,6 +31,9 @@ export class Article extends Model<Article, ArticleCreationAttrs>{
 
     @Column({ type: DataType.ENUM(...Object.values(CurrencyType)), allowNull: true })
     currency: CurrencyType;
+
+    @Column({ type: DataType.ENUM(...Object.values(ArticleCategories)), allowNull: true })
+    category: ArticleCategories;
 
     @Column({type: DataType.ARRAY(DataType.STRING), allowNull: true})
     images: string[];

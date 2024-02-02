@@ -10,7 +10,7 @@ exports.ArticlesModule = void 0;
 const common_1 = require("@nestjs/common");
 const articles_service_1 = require("./articles.service");
 const sequelize_1 = require("@nestjs/sequelize");
-const user_model_1 = require("../user/user.model");
+const users_model_1 = require("../users/users.model");
 const jwt_1 = require("@nestjs/jwt");
 const articles_model_1 = require("./articles.model");
 const file_service_1 = require("../file/file.service");
@@ -24,7 +24,7 @@ exports.ArticlesModule = ArticlesModule = __decorate([
         controllers: [articles_controller_1.ArticlesController],
         providers: [articles_service_1.ArticlesService, file_service_1.FileService],
         imports: [
-            sequelize_1.SequelizeModule.forFeature([articles_model_1.Article, user_model_1.User]),
+            sequelize_1.SequelizeModule.forFeature([articles_model_1.Article, users_model_1.User]),
             jwt_1.JwtModule,
             token_module_1.TokenModule
         ]

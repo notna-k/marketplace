@@ -1,10 +1,10 @@
 import {forwardRef, Module} from "@nestjs/common";
 import {JwtModule} from "@nestjs/jwt";
 import {TokenService} from "./token.service";
-import {UserModule} from "../user/user.module";
-import {User} from "../user/user.model";
+import {UsersModule} from "../users/users.module";
+import {User} from "../users/users.model";
 import {ConfigModule, ConfigService} from "@nestjs/config";
-import {UserService} from "../user/user.service";
+import {UsersService} from "../users/users.service";
 
 @Module({
     controllers: [],
@@ -13,7 +13,7 @@ import {UserService} from "../user/user.service";
     imports : [
         ConfigModule.forRoot(),
         JwtModule,
-        forwardRef(() => UserModule),
+        forwardRef(() => UsersModule),
         ConfigModule
     ]
 })

@@ -5,18 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd21c46b-7e23-48ff-8d35-15dc9033f4e7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../client/src/API/article/article-entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/API/user/user-entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../client/src/components/CreateItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleDetails/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleDetails/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleItem/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleItem/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleList/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ArticleList/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/ItemDetail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/NavBar/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/components/NavBar/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/configs/ky.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/constants/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/contexts/UserContext/UserProvider/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/use-logout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/use-sign-in.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/hooks/use-sign-up.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/SignIn/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/SignIn/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/SignUp/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/pages/SignUp/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/router/routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/api/fetch-articles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/api/get-article.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/api/logout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/api/refresh-token.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/api/sign-in.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/services/api/sign-up.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../client/src/types/api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/article/articleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/article/article-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/API/user/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/API/user/user-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/ArticleList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/CreateArticle.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/UserProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/article/article-entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/article/article-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/article/dto/create-article.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/user/dto/create-user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/user/dto/sign-user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/user/dto/update-user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/user/user-entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/API/user/user-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/router/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleItem.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/ArticleList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/NavBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/pages/Auth.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/pages/Home.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +176,18 @@
       <workItem from="1702400619977" duration="33000" />
       <workItem from="1702541326593" duration="9242000" />
       <workItem from="1702554991284" duration="4343000" />
+      <workItem from="1703060894725" duration="31000" />
+      <workItem from="1703065078152" duration="30000" />
+      <workItem from="1703792547917" duration="1131000" />
+      <workItem from="1704127721378" duration="4370000" />
+      <workItem from="1704179022707" duration="6762000" />
+      <workItem from="1704288042007" duration="2209000" />
+      <workItem from="1704459025450" duration="2445000" />
+      <workItem from="1704483525484" duration="606000" />
+      <workItem from="1704617525181" duration="16000" />
+      <workItem from="1706435088655" duration="4319000" />
+      <workItem from="1706519940262" duration="3945000" />
+      <workItem from="1706691110743" duration="1396000" />
     </task>
     <servers />
   </component>

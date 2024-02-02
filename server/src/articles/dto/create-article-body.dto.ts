@@ -1,6 +1,7 @@
 import {IsEnum, IsNotEmpty, IsNumberString, IsOptional, IsPositive, IsString} from "class-validator";
 import {CurrencyType} from "../../shared/constants/currency-type";
 import {Transform} from "class-transformer";
+import {ArticleCategories} from "../../shared/constants/article-categories";
 
 export class CreateArticleBodyDto{
     @IsNotEmpty()
@@ -10,12 +11,18 @@ export class CreateArticleBodyDto{
     @IsString()
     description : string;
 
-    @IsNotEmpty()
+
     @Transform((value) => {return Number(value.value)})
     @IsPositive()
+    @IsOptional()
     price: number;
 
-    @IsNotEmpty()
     @IsEnum(CurrencyType)
+    @IsOptional()
     currency: string;
+
+    @IsEnum(ArticleCategories)
+    @IsOptional()
+    category: ArticleCategories;
+
 }

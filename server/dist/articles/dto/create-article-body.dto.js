@@ -13,6 +13,7 @@ exports.CreateArticleBodyDto = void 0;
 const class_validator_1 = require("class-validator");
 const currency_type_1 = require("../../shared/constants/currency-type");
 const class_transformer_1 = require("class-transformer");
+const article_categories_1 = require("../../shared/constants/article-categories");
 class CreateArticleBodyDto {
 }
 exports.CreateArticleBodyDto = CreateArticleBodyDto;
@@ -26,14 +27,19 @@ __decorate([
     __metadata("design:type", String)
 ], CreateArticleBodyDto.prototype, "description", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     (0, class_transformer_1.Transform)((value) => { return Number(value.value); }),
     (0, class_validator_1.IsPositive)(),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateArticleBodyDto.prototype, "price", void 0);
 __decorate([
-    (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsEnum)(currency_type_1.CurrencyType),
+    (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateArticleBodyDto.prototype, "currency", void 0);
+__decorate([
+    (0, class_validator_1.IsEnum)(article_categories_1.ArticleCategories),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], CreateArticleBodyDto.prototype, "category", void 0);
 //# sourceMappingURL=create-article-body.dto.js.map

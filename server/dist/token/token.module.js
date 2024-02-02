@@ -10,7 +10,7 @@ exports.TokenModule = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
 const token_service_1 = require("./token.service");
-const user_module_1 = require("../user/user.module");
+const users_module_1 = require("../users/users.module");
 const config_1 = require("@nestjs/config");
 let TokenModule = class TokenModule {
 };
@@ -23,7 +23,7 @@ exports.TokenModule = TokenModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot(),
             jwt_1.JwtModule,
-            (0, common_1.forwardRef)(() => user_module_1.UserModule),
+            (0, common_1.forwardRef)(() => users_module_1.UsersModule),
             config_1.ConfigModule
         ]
     })

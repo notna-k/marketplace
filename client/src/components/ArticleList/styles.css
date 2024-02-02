@@ -1,0 +1,8 @@
+.row {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-left: 13.5%;
+
+}

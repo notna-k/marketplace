@@ -11,8 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Article = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-const user_model_1 = require("../user/user.model");
+const users_model_1 = require("../users/users.model");
 const currency_type_1 = require("../shared/constants/currency-type");
+const article_categories_1 = require("../shared/constants/article-categories");
 let Article = class Article extends sequelize_typescript_1.Model {
 };
 exports.Article = Article;
@@ -37,6 +38,10 @@ __decorate([
     __metadata("design:type", String)
 ], Article.prototype, "currency", void 0);
 __decorate([
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.ENUM(...Object.values(article_categories_1.ArticleCategories)), allowNull: true }),
+    __metadata("design:type", String)
+], Article.prototype, "category", void 0);
+__decorate([
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.ARRAY(sequelize_typescript_1.DataType.STRING), allowNull: true }),
     __metadata("design:type", Array)
 ], Article.prototype, "images", void 0);
@@ -45,13 +50,13 @@ __decorate([
     __metadata("design:type", Date)
 ], Article.prototype, "date", void 0);
 __decorate([
-    (0, sequelize_typescript_1.ForeignKey)(() => user_model_1.User),
+    (0, sequelize_typescript_1.ForeignKey)(() => users_model_1.User),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, allowNull: false }),
     __metadata("design:type", Number)
 ], Article.prototype, "userId", void 0);
 __decorate([
-    (0, sequelize_typescript_1.BelongsTo)(() => user_model_1.User, 'userId'),
-    __metadata("design:type", user_model_1.User)
+    (0, sequelize_typescript_1.BelongsTo)(() => users_model_1.User, 'userId'),
+    __metadata("design:type", users_model_1.User)
 ], Article.prototype, "user", void 0);
 exports.Article = Article = __decorate([
     (0, sequelize_typescript_1.Table)({ tableName: "articles" })

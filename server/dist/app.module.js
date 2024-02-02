@@ -9,9 +9,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const sequelize_1 = require("@nestjs/sequelize");
-const user_module_1 = require("./user/user.module");
+const users_module_1 = require("./users/users.module");
 const config_1 = require("@nestjs/config");
-const user_model_1 = require("./user/user.model");
+const users_model_1 = require("./users/users.model");
 const process = require("process");
 const articles_module_1 = require("./articles/articles.module");
 const articles_model_1 = require("./articles/articles.model");
@@ -27,8 +27,11 @@ exports.AppModule = AppModule = __decorate([
         controllers: [],
         providers: [file_service_1.FileService],
         imports: [
-            serve_static_1.ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, '..', "static") }),
-            config_1.ConfigModule.forRoot({
+            serve_static_1.ServeStaticModule.forRoot({
+                rootPath: path.resolve(__dirname, '..', 'static', 'image'),
+                exclude: ['/api/(.*)'],
+                serveRoot: "/static/image"
+            }), config_1.ConfigModule.forRoot({
                 envFilePath: '.env',
             }),
             sequelize_1.SequelizeModule.forRoot({
@@ -38,10 +41,10 @@ exports.AppModule = AppModule = __decorate([
                 username: process.env.POSTGRES_USER,
                 password: process.env.POSTGRES_PASSWORD,
                 database: process.env.POSTGRES_DB,
-                models: [user_model_1.User, articles_model_1.Article],
+                models: [users_model_1.User, articles_model_1.Article],
                 autoLoadModels: true
             }),
-            user_module_1.UserModule,
+            users_module_1.UsersModule,
             articles_module_1.ArticlesModule,
             file_module_1.FileModule
         ],

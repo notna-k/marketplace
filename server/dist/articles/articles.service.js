@@ -17,32 +17,44 @@ const common_1 = require("@nestjs/common");
 const articles_model_1 = require("./articles.model");
 const sequelize_1 = require("@nestjs/sequelize");
 const sequelize_2 = require("sequelize");
+const users_model_1 = require("../users/users.model");
 let ArticlesService = class ArticlesService {
     constructor(articleRepository) {
         this.articleRepository = articleRepository;
     }
-    async getAll(count = 10, offset = 0, title) {
+    async getAll(count = 10, offset = 0, title, category) {
+        const whereClause = {
+            title: {
+                [sequelize_2.Op.iLike]: `%${title}%`,
+            },
+        };
+        if (category !== undefined) {
+            whereClause.category = category;
+        }
         const articles = await articles_model_1.Article.findAll({
             offset,
             limit: count,
-            where: {
-                title: {
-                    [sequelize_2.Op.iLike]: `%${title}%`,
-                },
-            },
-            order: [
-                ['title', 'ASC'],
-            ],
+            where: whereClause,
+            order: [['title', 'ASC']],
         });
         return articles;
     }
     async getOne(id) {
-        const articles = this.articleRepository.findByPk(id);
-        return articles;
+        const article = await articles_model_1.Article.findByPk(id, {
+            include: [{
+                    model: users_model_1.User,
+                    attributes: ['id', 'name', 'email']
+                }]
+        });
+        return article;
     }
     async createArticle(dto, userId, imageUrls) {
         const article = this.articleRepository.create({ ...dto, userId, images: imageUrls, date: new Date() });
         return article;
+    }
+    async getArticlesCount() {
+        const count = await this.articleRepository.count();
+        return count;
     }
 };
 exports.ArticlesService = ArticlesService;

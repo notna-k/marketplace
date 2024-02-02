@@ -20,7 +20,7 @@ import {UserJwtPayload} from "../shared/dto/auth-user.dto";
 import {User} from "src/shared/decorators/user.decorator"
 import {ValidationError} from "class-validator";
 
-@Controller('/articles')
+@Controller('/article')
 export class ArticlesController {
 
     constructor(private readonly articlesService : ArticlesService,
@@ -29,13 +29,13 @@ export class ArticlesController {
 
 
     @Get()
-    async getAllArticles(@Query() {count = 10, offset = 0, title = ""}: GetAllArticlesQueryDto): Promise<any>{
-        const articles = await this.articlesService.getAll(count, offset, title);
+    async getAllArticles(@Query() {count = 10, offset = 0, title = "", category}: GetAllArticlesQueryDto): Promise<any>{
+        const articles = await this.articlesService.getAll(count, offset, title, category);
 
         return articles;
     }
 
-    @Get(":id")
+    @Get("id/:id")
     async getArticle(@Param() {id}: GetArticleParamDto): Promise<any>{
         const article = await this.articlesService.getOne(id);
 
@@ -60,6 +60,13 @@ export class ArticlesController {
 
         const article = await this.articlesService.createArticle(body, id, imageUrls);
         return article;
+    }
+
+
+    @Get("count")
+    async getArticlesCount(){
+        const number = this.articlesService.getArticlesCount();
+        return number;
     }
 
 }

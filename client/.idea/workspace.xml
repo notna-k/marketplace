@@ -5,78 +5,196 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92dff1fd-4e27-41c2-ac68-3b768b3b91fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/API/article/article-entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/API/user/user-entity.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/CreateItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/dist/shared/decorators/user.decorator.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/dist/shared/decorators/user.decorator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/dist/shared/decorators/user.decorator.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/dist/user/dto/get-user-articles-param.dto.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/dist/user/dto/get-user-articles-param.dto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/dist/user/dto/get-user-articles-param.dto.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/shared/decorators/user.decorator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/src/user/dto/get-user-articles-param.dto.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/static/image/1ec346e0-17b4-4c7f-822d-894d231b1565.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/static/image/93d33778-f66a-4174-95dc-201f44719012.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleDetails/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleDetails/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleItem/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleItem/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleList/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ArticleList/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ItemDetail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NavBar/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NavBar/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs/ky.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/contexts/UserContext/UserProvider/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-logout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-sign-in.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-sign-up.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignIn/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignIn/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignUp/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SignUp/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/routes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/fetch-articles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/get-article.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/logout.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/refresh-token.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/sign-in.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/api/sign-up.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/types/api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/shared/constants/article-categories.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/shared/constants/article-categories.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/shared/constants/article-categories.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/shared/dto/user.dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/shared/dto/user.dto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/shared/dto/user.dto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-profile-body.dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-profile-body.dto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-profile-body.dto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-profile-param-dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-profile-param-dto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-profile-param-dto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-user-articles-param.dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-user-articles-param.dto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/get-user-articles-param.dto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/sign-in-body.dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/sign-in-body.dto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/sign-in-body.dto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/sign-up-body.dto.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/sign-up-body.dto.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/dto/sign-up-body.dto.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.controller.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.controller.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.model.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.model.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.model.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.module.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.module.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.module.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.service.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/dist/users/users.service.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/shared/constants/article-categories.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/shared/dto/user.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/users/dto/get-profile-param-dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/030e02ee-d98c-418c-884a-4c14b39880c7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/0536f525-45a0-4f2a-8f0b-f1460e9bc136.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/06158e5d-b034-4865-99f3-dac76d0b658f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/0c93517d-59ff-420c-93a6-6dbb73273cd0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/0ff388ce-eb36-416f-8516-cbb463c6f22a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/19d233e5-6ae5-4204-badb-8a83882d69ce.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/2416d549-19da-4636-944c-286952b0a778.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/31b12d15-bd1e-41ec-88e5-3c519c4bbb05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/344940c3-6357-481f-8502-a3f617debe38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/3f5ae4b2-932b-4daa-ae2d-1c666a94d2ab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/3fbe8f9d-5b7f-4822-8657-c20e8117c946.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/42291e97-2f01-4b1a-8fa1-c44d6e0bcb33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/4be1da1a-a85f-459a-a4eb-62dfe2656706.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/4c4e0c2d-1627-4baf-9e87-3c77c7aa95fa.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/52df8e1e-4a9b-49ea-a761-00a7d2813726.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/550f857d-fee2-4ba7-bdea-8677d2637303.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/6571dd70-cc17-471c-9141-8237a28c9c5b.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/6af2f387-e13b-4d6e-85da-30ab58950d21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/8b5acc0a-a792-4d85-be38-5a6ed1a8602a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/a0763d9a-c6db-44a8-a324-260a24c58ff8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/a0f470b0-888e-4eb6-80c2-6b587dc941cd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/a9ffe3a7-7150-4e23-8316-8d89022c0a79.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/b045af97-1697-4b6a-8053-c88d015ab5f1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/bb85284d-ed85-4c8c-b571-518dcab42a92.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/bd1c1756-79d1-471c-9e35-53a8cce26b64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/c8eabc8c-87bc-4e1b-869f-c8f39e3045be.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/e1fb73d7-3adf-4f30-8a74-7ec6878fa4b4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/eed9ba52-1789-4cd9-b5b3-7ec58fe84145.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/f58b32b9-ef9e-4a53-b72f-d33ea7aee037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/f6c6795d-5da2-4e77-9985-db0e70bbadb0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/static/image/f927c1e2-2ccb-4be4-b843-3685807ac49f.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/article/articleService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/article/article-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/user/userService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/user/user-service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ArticleItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ArticleItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ArticleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ArticleList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CreateArticle.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/article/article-entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/article/article-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/article/dto/create-article.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/user/dto/create-user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/user/dto/sign-user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/user/dto/update-user.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/user/user-entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/user/user-service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ArticleItem.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ArticleList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Auth.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/app.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/app.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/app.module.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.controller.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.controller.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.model.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.model.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.model.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.module.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.service.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/articles.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/articles.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/dto/create-article-body.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/dto/create-article-body.dto.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/dto/create-article-body.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/dto/create-article-body.dto.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/articles/dto/create-article-body.dto.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/dto/create-article-body.dto.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/articles/dto/get-all-articles-query.dto.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/dto/get-all-articles-query.dto.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/articles/dto/get-all-articles-query.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/dto/get-all-articles-query.dto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/articles/dto/get-all-articles-query.dto.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/articles/dto/get-all-articles-query.dto.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/shared/dto/auth-user.dto.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/shared/dto/auth-user.dto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/shared/dto/auth-user.dto.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/shared/dto/auth-user.dto.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/shared/guards/auth-guard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/shared/guards/auth-guard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/shared/guards/auth-guard.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/shared/guards/auth-guard.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/token/token.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/token/token.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/token/token.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/token/token.module.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/token/token.service.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/token/token.service.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/token/token.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/token/token.service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/token/token.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/token/token.service.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.controller.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.controller.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.model.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.model.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.model.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.model.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../server/dist/user/user.service.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/lodash/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/lodash/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/lodash/common/common.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/lodash/common/common.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/lodash/common/object.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/lodash/common/object.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/lodash/fp.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/lodash/fp.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/lodash/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/lodash/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/node_modules/@types/lodash/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/node_modules/@types/lodash/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/get-profile-body.dto.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/get-profile-body.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/get-profile-body.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/get-user-articles-param.dto.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/get-user-articles-param.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/get-user-articles-param.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/refresh-token-body.dto.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/refresh-token-body.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/refresh-token-body.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/sign-in-body.dto.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/sign-in-body.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/sign-in-body.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/sign-up-body.dto.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/sign-up-body.dto.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/dto/sign-up-body.dto.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.controller.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.model.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.model.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.module.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.module.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.module.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.service.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/dist/user/user.service.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/articles/articles.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/articles.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/articles/dto/create-article-body.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/dto/create-article-body.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/articles/dto/get-all-articles-query.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/articles/dto/get-all-articles-query.dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/shared/dto/auth-user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/shared/dto/auth-user.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/shared/guards/auth-guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/shared/guards/auth-guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/token/token.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/token/token.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/src/token/token.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/token/token.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/user/user.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/user/user.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/user/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/user/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/user/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/user/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/dto/get-profile-body.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/dto/get-user-articles-param.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/dto/refresh-token-body.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/dto/sign-in-body.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/dto/sign-up-body.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/user.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/user.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/user.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/user/user.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/test/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/test/jest-e2e.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,23 +225,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/server&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/notna/Projects/JS_Projects/MarketPlace/client/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/notna/Projects/TrainingClub/trx_training_back",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/home/notna/Projects/JS_Projects/MarketPlace/client/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/API/article/dto" />
@@ -132,6 +250,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/router" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/API/article" />
       <recent name="$PROJECT_DIR$/src/API/user" />
@@ -192,6 +311,15 @@
       <workItem from="1702400651564" duration="599000" />
       <workItem from="1702454893272" duration="599000" />
       <workItem from="1702541313136" duration="6540000" />
+      <workItem from="1704127910552" duration="3695000" />
+      <workItem from="1704179035801" duration="9503000" />
+      <workItem from="1704288030124" duration="1754000" />
+      <workItem from="1704459019828" duration="6213000" />
+      <workItem from="1704483513961" duration="2933000" />
+      <workItem from="1706435078931" duration="11343000" />
+      <workItem from="1706519926902" duration="10091000" />
+      <workItem from="1706691104182" duration="1539000" />
+      <workItem from="1706774441516" duration="610000" />
     </task>
     <servers />
   </component>
